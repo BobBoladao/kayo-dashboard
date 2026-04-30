@@ -529,6 +529,9 @@ function showTab(name) {
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + name).classList.add('active');
   event.target.classList.add('active');
+  if (name === 'estoque') renderEstoque();
+  if (name === 'cmv')     renderCmv();
+  if (name === 'consumo') renderConsumo();
 }
 
 // ═══════════════ ESTOQUE ═══════════════
@@ -1065,6 +1068,9 @@ function refreshAll() {
 // INIT
 renderAlertas();
 refreshAll();
+renderEstoque();
+renderCmv();
+renderConsumo();
 
 </script>
 </body>
