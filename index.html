@@ -5,287 +5,301 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>KAYŌ · Dashboard</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
-  :root {
-    /* Paleta premium: fundo quase preto azulado + vermelho vivo + acentos âmbar/ciano */
-    --red:     #F23557;
-    --red-dim: rgba(242,53,87,0.12);
-    --red-glow:rgba(242,53,87,0.4);
-    --amber:   #F5A623;
-    --cyan:    #00D4FF;
-    --green:   #0DDB8E;
-    --purple:  #9B59F5;
-    --bg:      #060912;
-    --bg2:     #090d1a;
-    --card:    #0c1020;
-    --card2:   #101528;
-    --border:  #181f38;
-    --border2: #1e2845;
-    --text:    #eceef8;
-    --muted:   #525c7a;
-    --muted2:  #3a4260;
-  }
+:root {
+  --teal:    #0EA5E9;
+  --teal2:   #0284C7;
+  --green:   #10B981;
+  --green2:  #059669;
+  --emerald: #34D399;
+  --sky:     #38BDF8;
+  --amber:   #F59E0B;
+  --rose:    #F43F5E;
+  --bg:      #F0F4F8;
+  --bg2:     #E2EAF2;
+  --surface: #FFFFFF;
+  --surface2:#F8FAFC;
+  --border:  #CBD5E1;
+  --border2: #E2E8F0;
+  --text:    #0F172A;
+  --text2:   #334155;
+  --muted:   #64748B;
+  --muted2:  #94A3B8;
+}
 
-  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-  html { font-size:16px; }
-  body {
-    background: var(--bg);
-    background-image:
-      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(242,53,87,0.07) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(0,212,255,0.04) 0%, transparent 60%);
-    color:var(--text);
-    font-family:'DM Sans',sans-serif;
-    min-height:100vh; overflow-x:hidden;
-  }
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+body {
+  background: var(--bg);
+  background-image: radial-gradient(ellipse 80% 40% at 50% -5%, rgba(14,165,233,0.08) 0%, transparent 60%);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
 
-  /* ── HEADER ── */
-  header {
-    display:flex; align-items:center; justify-content:space-between;
-    padding:0 28px;
-    height:72px;
-    border-bottom:1px solid var(--border);
-    background:rgba(6,9,18,0.96);
-    backdrop-filter:blur(20px);
-    position:sticky; top:0; z-index:100;
-    box-shadow: 0 1px 30px rgba(0,0,0,0.4);
-  }
-  header::after {
-    content:'';
-    position:absolute; bottom:0; left:0; right:0; height:1px;
-    background: linear-gradient(90deg, transparent, rgba(242,53,87,0.4), rgba(0,212,255,0.2), transparent);
-  }
-  .logo img { height:52px; width:auto; display:block; filter: drop-shadow(0 0 12px rgba(242,53,87,0.25)); }
-  .header-right { display:flex; align-items:center; gap:12px; }
-  .active-filter-pill {
-    display:none; align-items:center; gap:6px;
-    background:var(--red-dim); border:1px solid var(--red);
-    border-radius:20px; padding:5px 14px;
-    font-size:11px; color:var(--red); font-weight:600; letter-spacing:0.3px;
-  }
-  .active-filter-pill.show { display:flex; }
-  .clear-btn { background:none; border:none; color:var(--red); cursor:pointer; font-size:15px; padding:0; line-height:1; }
-  .date-badge {
-    font-size:11px; color:var(--muted); font-family:'DM Mono',monospace;
-    white-space:nowrap; background:var(--card); border:1px solid var(--border2);
-    padding:4px 10px; border-radius:6px;
-  }
+/* ── HEADER ── */
+header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0 28px; height: 72px;
+  background: linear-gradient(135deg, #0c1f3a 0%, #0a2a40 100%);
+  position: sticky; top:0; z-index:100;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+header::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+  background: linear-gradient(90deg, var(--teal), var(--green), var(--teal));
+  opacity: 0.8;
+}
+.logo img { height:50px; width:auto; display:block; filter: drop-shadow(0 0 10px rgba(14,165,233,0.3)); }
+.header-right { display:flex; align-items:center; gap:12px; }
+.active-filter-pill {
+  display:none; align-items:center; gap:6px;
+  background:rgba(14,165,233,0.15); border:1px solid var(--teal);
+  border-radius:20px; padding:5px 14px;
+  font-size:11px; color:var(--teal); font-weight:600;
+}
+.active-filter-pill.show { display:flex; }
+.clear-btn { background:none; border:none; color:var(--teal); cursor:pointer; font-size:15px; padding:0; }
+.date-badge {
+  font-size:11px; color:#94a3b8; font-family:'DM Mono',monospace;
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);
+  padding:4px 12px; border-radius:6px;
+}
 
-  /* ── MAIN ── */
-  main { padding:24px 20px; display:flex; flex-direction:column; gap:22px; max-width:1600px; margin:0 auto; width:100%; }
+/* ── NAV TABS ── */
+.nav-tabs {
+  display:flex; gap:0; background:var(--surface);
+  border-bottom:2px solid var(--border2);
+  padding:0 20px; overflow-x:auto;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.nav-tab {
+  padding:14px 20px; font-size:12px; font-weight:600;
+  color:var(--muted); border:none; background:none;
+  cursor:pointer; border-bottom:2px solid transparent;
+  margin-bottom:-2px; white-space:nowrap;
+  transition:all 0.2s; letter-spacing:0.3px;
+}
+.nav-tab:hover { color:var(--teal); }
+.nav-tab.active { color:var(--teal); border-bottom-color:var(--teal); }
 
-  /* ── KPI ── */
-  .kpi-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
-  @media(min-width:640px){ .kpi-grid { grid-template-columns:repeat(3,1fr); } }
-  @media(min-width:1024px){ .kpi-grid { grid-template-columns:repeat(5,1fr); } }
+/* ── MAIN ── */
+main { padding:24px 20px; display:flex; flex-direction:column; gap:20px; max-width:1600px; margin:0 auto; }
+.tab-panel { display:none; flex-direction:column; gap:20px; }
+.tab-panel.active { display:flex; }
 
-  .kpi {
-    background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%);
-    border:1px solid var(--border); border-radius:14px;
-    padding:18px 16px; position:relative; overflow:hidden;
-    transition: border-color 0.2s, transform 0.15s;
-  }
-  .kpi:hover { border-color:var(--border2); transform:translateY(-1px); }
-  .kpi::before {
-    content:''; position:absolute; top:0;left:0;right:0; height:1px;
-    background:linear-gradient(90deg, transparent, var(--accent, var(--red)), transparent);
-    opacity:0.7;
-  }
-  .kpi::after {
-    content:''; position:absolute; top:-40px; right:-20px;
-    width:80px; height:80px; border-radius:50%;
-    background:radial-gradient(circle, var(--accent, var(--red)) 0%, transparent 70%);
-    opacity:0.05;
-  }
-  .kpi.amber { --accent: var(--amber); }
-  .kpi.cyan  { --accent: var(--cyan);  }
-  .kpi.green { --accent: var(--green); }
-  .kpi.purple{ --accent: var(--purple);}
+/* ── KPI ── */
+.kpi-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+@media(min-width:640px){ .kpi-grid { grid-template-columns:repeat(3,1fr); } }
+@media(min-width:1024px){ .kpi-grid { grid-template-columns:repeat(5,1fr); } }
 
-  .kpi-label { font-size:9px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:1.2px; margin-bottom:10px; }
-  .kpi-value { font-size:20px; font-weight:700; color:#fff; font-family:'DM Mono',monospace; line-height:1; margin-bottom:5px; }
-  .kpi-sub   { font-size:10px; color:var(--muted); }
-  .kpi-value.red    { color:var(--red);    text-shadow:0 0 20px rgba(242,53,87,0.4); }
-  .kpi-value.amber  { color:var(--amber);  text-shadow:0 0 20px rgba(245,166,35,0.3); }
-  .kpi-value.green  { color:var(--green);  text-shadow:0 0 20px rgba(13,219,142,0.3); }
-  .kpi-value.purple { color:var(--purple); text-shadow:0 0 20px rgba(155,89,245,0.3); }
+.kpi {
+  background:var(--surface); border:1px solid var(--border2);
+  border-radius:14px; padding:18px 16px; position:relative; overflow:hidden;
+  box-shadow:0 1px 8px rgba(0,0,0,0.06); transition:transform 0.15s, box-shadow 0.15s;
+}
+.kpi:hover { transform:translateY(-2px); box-shadow:0 4px 20px rgba(0,0,0,0.1); }
+.kpi::before {
+  content:''; position:absolute; top:0;left:0;right:0; height:3px;
+  background: var(--kpi-color, linear-gradient(90deg,var(--teal),var(--green)));
+}
+.kpi.teal  { --kpi-color: linear-gradient(90deg,var(--teal),var(--sky)); }
+.kpi.green { --kpi-color: linear-gradient(90deg,var(--green),var(--emerald)); }
+.kpi.amber { --kpi-color: linear-gradient(90deg,var(--amber),#FCD34D); }
+.kpi.rose  { --kpi-color: linear-gradient(90deg,var(--rose),#FB7185); }
+.kpi-label { font-size:9px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:1.2px; margin-bottom:10px; }
+.kpi-value { font-size:22px; font-weight:700; color:var(--text); font-family:'DM Mono',monospace; line-height:1; margin-bottom:5px; }
+.kpi-value.teal   { color:var(--teal2); }
+.kpi-value.green  { color:var(--green2); }
+.kpi-value.amber  { color:#D97706; }
+.kpi-value.rose   { color:var(--rose); }
+.kpi-sub { font-size:10px; color:var(--muted); }
 
-  /* ── CANAL PILLS ── */
-  .local-pills { display:flex; gap:8px; flex-wrap:wrap; }
-  .local-pill {
-    padding:6px 16px; border-radius:8px; font-size:11px; font-weight:600;
-    cursor:pointer; border:1px solid var(--border2); background:transparent; color:var(--muted);
-    transition:all 0.2s; letter-spacing:0.3px;
-  }
-  .local-pill:hover { border-color:var(--red); color:var(--text); background:var(--red-dim); }
-  .local-pill.active {
-    background:linear-gradient(135deg,#c0002a,var(--red));
-    border-color:var(--red); color:#fff;
-    box-shadow:0 4px 20px rgba(242,53,87,0.35);
-  }
+/* ── CANAL PILLS ── */
+.local-pills { display:flex; gap:8px; flex-wrap:wrap; }
+.local-pill {
+  padding:6px 16px; border-radius:8px; font-size:11px; font-weight:600;
+  cursor:pointer; border:1px solid var(--border); background:var(--surface); color:var(--muted);
+  transition:all 0.2s;
+}
+.local-pill:hover { border-color:var(--teal); color:var(--teal); }
+.local-pill.active {
+  background:linear-gradient(135deg,var(--teal2),var(--teal));
+  border-color:var(--teal); color:#fff;
+  box-shadow:0 4px 16px rgba(14,165,233,0.3);
+}
 
-  /* ── GRID ── */
-  .row-60-40 { display:grid; grid-template-columns:1fr; gap:16px; }
-  @media(min-width:900px){ .row-60-40 { grid-template-columns:60fr 40fr; } }
+/* ── GRID ── */
+.row-60-40 { display:grid; grid-template-columns:1fr; gap:16px; }
+@media(min-width:900px){ .row-60-40 { grid-template-columns:60fr 40fr; } }
 
-  /* ── CHART BOX ── */
-  .chart-box {
-    background:linear-gradient(135deg, var(--card) 0%, var(--card2) 100%);
-    border:1px solid var(--border); border-radius:14px; padding:20px;
-    transition: border-color 0.2s;
-    position:relative; overflow:hidden;
-  }
-  .chart-box::before {
-    content:''; position:absolute; top:0;left:0;right:0; height:1px;
-    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
-  }
-  .chart-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
-  .chart-title { font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:1.2px; }
-  .chart-hint { font-size:9px; color:var(--muted2); font-style:italic; }
+/* ── CHART BOX ── */
+.chart-box {
+  background:var(--surface); border:1px solid var(--border2);
+  border-radius:14px; padding:20px;
+  box-shadow:0 1px 8px rgba(0,0,0,0.06);
+}
+.chart-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+.chart-title { font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:1.2px; }
+.chart-hint { font-size:9px; color:var(--muted2); font-style:italic; }
 
-  /* ── BARRAS ── */
-  .bars-area {
-    display:flex; align-items:flex-end; gap:5px;
-    height:210px; position:relative; overflow-x:auto; overflow-y:visible;
-  }
-  .bars-area::before {
-    content:''; position:absolute; left:0;right:0; bottom:26px; height:1px;
-    background:linear-gradient(90deg, transparent, var(--border2), transparent);
-    pointer-events:none;
-  }
-  .bar-col {
-    flex:1; min-width:26px;
-    display:flex; flex-direction:column; align-items:center;
-    cursor:pointer; height:100%; gap:0;
-    transition: opacity 0.2s;
-  }
-  .bar-inner {
-    flex:1; width:100%; display:flex; flex-direction:column;
-    align-items:center; justify-content:flex-end; gap:4px;
-  }
-  .bar-fill {
-    width:78%; border-radius:5px 5px 0 0;
-    transition:all 0.25s cubic-bezier(.4,0,.2,1); min-height:4px;
-    position:relative;
-    /* gradiente padrão sobrescrito por categoria */
-    background:linear-gradient(180deg, var(--red) 0%, #8B0019 100%);
-    box-shadow: 0 -2px 12px rgba(242,53,87,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-  .bar-col:hover .bar-fill, .bar-col.active .bar-fill {
-    width:88%; filter:brightness(1.25);
-    box-shadow: 0 -4px 24px rgba(242,53,87,0.5), inset 0 1px 0 rgba(255,255,255,0.15);
-  }
-  .bar-col.dimmed { opacity:0.15; }
-  .bar-col.active .bar-fill::after {
-    content:''; position:absolute; top:0;left:0;right:0;bottom:0;
-    border:1.5px solid rgba(255,255,255,0.3); border-radius:5px 5px 0 0;
-  }
-  .bar-lbl {
-    flex-shrink:0; height:26px; width:100%;
-    display:flex; align-items:flex-start; justify-content:center;
-    padding-top:6px;
-    font-size:8.5px; color:var(--muted); text-align:center;
-    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-    letter-spacing:0.2px; font-weight:500;
-  }
-  .bar-val {
-    font-size:8px; font-family:'DM Mono',monospace;
-    font-weight:500; text-align:center; line-height:1; margin-bottom:4px;
-    color:rgba(255,255,255,0.7); letter-spacing:0.3px;
-  }
-  .bar-col.dimmed .bar-val { color:var(--muted2); }
+/* ── BARRAS ── */
+.bars-area {
+  display:flex; align-items:flex-end; gap:5px;
+  height:200px; position:relative; overflow-x:auto; overflow-y:visible;
+}
+.bars-area::before {
+  content:''; position:absolute; left:0;right:0; bottom:26px; height:1px;
+  background:var(--border2); pointer-events:none;
+}
+.bar-col { flex:1; min-width:26px; display:flex; flex-direction:column; align-items:center; cursor:pointer; height:100%; }
+.bar-inner { flex:1; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; gap:4px; }
+.bar-fill {
+  width:78%; border-radius:5px 5px 0 0; transition:all 0.25s; min-height:4px; position:relative;
+  background:linear-gradient(180deg,var(--teal) 0%,var(--teal2) 100%);
+  box-shadow: 0 -2px 8px rgba(14,165,233,0.2);
+}
+.bar-col:hover .bar-fill, .bar-col.active .bar-fill {
+  width:90%; filter:brightness(1.1);
+  box-shadow: 0 -4px 20px rgba(14,165,233,0.4);
+}
+.bar-col.dimmed { opacity:0.2; }
+.bar-col.active .bar-fill::after {
+  content:''; position:absolute; top:0;left:0;right:0;bottom:0;
+  border:1.5px solid var(--teal); border-radius:5px 5px 0 0;
+}
+.bar-lbl {
+  flex-shrink:0; height:26px; width:100%;
+  display:flex; align-items:flex-start; justify-content:center; padding-top:6px;
+  font-size:8.5px; color:var(--muted); text-align:center;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-weight:500;
+}
+.bar-val {
+  font-size:8px; font-family:'DM Mono',monospace; font-weight:500;
+  text-align:center; line-height:1; margin-bottom:4px; color:var(--teal2);
+}
+.bar-col.dimmed .bar-val { color:var(--muted2); }
 
-  /* ── DONUT ── */
-  .donut-wrap { display:flex; flex-direction:column; align-items:center; }
-  .donut-svg-area { position:relative; width:150px; height:150px; margin:0 auto 16px; }
-  .donut-center { position:absolute; top:50%;left:50%; transform:translate(-50%,-50%); text-align:center; }
-  .donut-center-val { font-size:18px; font-weight:700; color:#fff; font-family:'DM Mono',monospace; line-height:1; }
-  .donut-center-lbl { font-size:9px; color:var(--muted); margin-top:4px; text-transform:uppercase; letter-spacing:0.8px; }
-  .donut-legend { width:100%; display:flex; flex-direction:column; gap:5px; max-height:160px; overflow-y:auto; }
-  .donut-legend::-webkit-scrollbar { width:2px; }
-  .donut-legend::-webkit-scrollbar-thumb { background:var(--border2); border-radius:2px; }
-  .legend-item { display:flex; align-items:center; gap:8px; cursor:pointer; padding:5px 8px; border-radius:8px; transition:background 0.15s; }
-  .legend-item:hover { background:var(--card2); }
-  .legend-item.active { background:var(--red-dim); }
-  .legend-item.dimmed { opacity:0.3; }
-  .legend-dot { width:8px; height:8px; border-radius:3px; flex-shrink:0; }
-  .legend-name { font-size:11px; color:var(--text); flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-weight:500; }
-  .legend-pct { font-size:10px; color:var(--muted); font-family:'DM Mono',monospace; }
+/* ── DONUT ── */
+.donut-wrap { display:flex; flex-direction:column; align-items:center; }
+.donut-svg-area { position:relative; width:150px; height:150px; margin:0 auto 14px; }
+.donut-center { position:absolute; top:50%;left:50%; transform:translate(-50%,-50%); text-align:center; }
+.donut-center-val { font-size:18px; font-weight:700; color:var(--text); font-family:'DM Mono',monospace; line-height:1; }
+.donut-center-lbl { font-size:9px; color:var(--muted); margin-top:4px; text-transform:uppercase; letter-spacing:0.8px; }
+.donut-legend { width:100%; display:flex; flex-direction:column; gap:5px; max-height:160px; overflow-y:auto; }
+.legend-item { display:flex; align-items:center; gap:8px; cursor:pointer; padding:5px 8px; border-radius:8px; transition:background 0.15s; }
+.legend-item:hover { background:var(--surface2); }
+.legend-item.active { background:rgba(14,165,233,0.08); }
+.legend-dot { width:8px; height:8px; border-radius:3px; flex-shrink:0; }
+.legend-name { font-size:11px; color:var(--text2); flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-weight:500; }
+.legend-pct { font-size:10px; color:var(--muted); font-family:'DM Mono',monospace; }
 
-  /* ── TABLE ── */
-  .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
-  table { width:100%; border-collapse:collapse; font-size:12px; min-width:400px; }
-  th {
-    text-align:left; padding:8px 12px; font-size:9px; font-weight:700;
-    color:var(--muted); text-transform:uppercase; letter-spacing:1px;
-    border-bottom:1px solid var(--border); white-space:nowrap;
-  }
-  td { padding:9px 12px; border-bottom:1px solid rgba(24,31,56,0.6); font-size:12px; }
-  tr:hover td { background:rgba(255,255,255,0.02); }
-  tr.dimmed td { opacity:0.15; }
-  .td-mono { font-family:'DM Mono',monospace; }
-  .td-red { color:var(--red); font-weight:600; }
-  .badge { display:inline-block; padding:2px 8px; border-radius:5px; font-size:9px; font-weight:700; letter-spacing:0.3px; }
-  .badge-ok  { background:rgba(13,219,142,0.1);  color:var(--green); border:1px solid rgba(13,219,142,0.2); }
-  .badge-sem { background:rgba(245,166,35,0.1);  color:var(--amber); border:1px solid rgba(245,166,35,0.2); }
+/* ── TABLE GERAL ── */
+.table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+table { width:100%; border-collapse:collapse; font-size:12px; min-width:420px; }
+th {
+  text-align:left; padding:9px 12px; font-size:9px; font-weight:700;
+  color:var(--muted); text-transform:uppercase; letter-spacing:1px;
+  border-bottom:2px solid var(--border2); white-space:nowrap; background:var(--surface2);
+}
+td { padding:9px 12px; border-bottom:1px solid var(--border2); }
+tr:hover td { background:rgba(14,165,233,0.03); }
+tr.dimmed td { opacity:0.2; }
+.td-mono { font-family:'DM Mono',monospace; }
+.td-teal  { color:var(--teal2); font-weight:600; }
+.td-green { color:var(--green2); font-weight:600; }
+.td-rose  { color:var(--rose);  font-weight:600; }
+.td-amber { color:#D97706; font-weight:600; }
 
-  /* ── ALERTAS ── */
-  .alert-list { display:flex; flex-direction:column; gap:6px; max-height:250px; overflow-y:auto; }
-  .alert-list::-webkit-scrollbar { width:2px; }
-  .alert-list::-webkit-scrollbar-thumb { background:var(--border2); }
-  .alert-item {
-    display:flex; align-items:center; gap:10px; padding:9px 12px;
-    background:rgba(242,53,87,0.04); border-radius:9px;
-    border:1px solid rgba(242,53,87,0.12); border-left:3px solid var(--red);
-    font-size:11px; transition: background 0.15s;
-  }
-  .alert-item:hover { background:rgba(242,53,87,0.08); }
-  .alert-icon { font-size:12px; flex-shrink:0; }
-  .alert-name { flex:1; color:var(--text); font-weight:500; }
-  .alert-val { font-family:'DM Mono',monospace; color:var(--red); font-size:10px; white-space:nowrap; }
+/* ── BADGES ── */
+.badge { display:inline-block; padding:3px 9px; border-radius:6px; font-size:9px; font-weight:700; letter-spacing:0.3px; }
+.badge-ok       { background:rgba(16,185,129,0.1); color:var(--green2); border:1px solid rgba(16,185,129,0.2); }
+.badge-sem      { background:rgba(245,158,11,0.1); color:#D97706;       border:1px solid rgba(245,158,11,0.2); }
+.badge-ruptura  { background:rgba(244,63,94,0.1);  color:var(--rose);   border:1px solid rgba(244,63,94,0.2); }
+.badge-baixo    { background:rgba(245,158,11,0.1); color:#D97706;       border:1px solid rgba(245,158,11,0.2); }
 
-  /* ── FOOTER IMPORT ── */
-  .footer-import {
-    padding:24px 20px 36px;
-    border-top:1px solid var(--border);
-    display:flex; flex-direction:column; align-items:center; gap:10px;
-  }
-  .import-label { font-size:9px; color:var(--muted2); letter-spacing:1.5px; text-transform:uppercase; font-weight:600; }
-  .import-zone {
-    display:flex; align-items:center; gap:10px;
-    padding:10px 22px; border:1px dashed var(--border2); border-radius:10px;
-    cursor:pointer; transition:all 0.2s; background:transparent;
-    color:var(--muted2); font-size:11px; font-family:'DM Sans',sans-serif; font-weight:500;
-  }
-  .import-zone:hover { border-color:var(--muted); color:var(--muted); background:rgba(255,255,255,0.02); }
-  .import-zone.loading { border-color:var(--red); color:var(--red); animation:pulse 1s infinite; }
-  .import-zone.success  { border-color:var(--green); color:var(--green); }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-  #xlsxInput { display:none; }
-  .import-status { font-size:10px; color:var(--muted2); min-height:14px; }
-  .import-status.ok  { color:var(--green); }
-  .import-status.err { color:var(--red); }
-  .dev-credit {
-    margin-top:10px; font-size:10px; color:var(--muted2);
-    letter-spacing:0.6px; opacity:0.5;
-  }
+/* ── BARRA PROGRESSO ESTOQUE ── */
+.stock-bar-wrap { width:80px; background:var(--bg2); border-radius:4px; height:6px; overflow:hidden; display:inline-block; vertical-align:middle; }
+.stock-bar { height:100%; border-radius:4px; transition:width 0.3s; }
 
-  /* ── SCROLLBAR ── */
-  ::-webkit-scrollbar { width:4px; height:4px; }
-  ::-webkit-scrollbar-track { background:transparent; }
-  ::-webkit-scrollbar-thumb { background:var(--border2); border-radius:2px; }
+/* ── SEARCH ── */
+.search-wrap { position:relative; }
+.search-input {
+  width:100%; padding:9px 12px 9px 36px; border:1px solid var(--border);
+  border-radius:10px; font-size:12px; font-family:'DM Sans',sans-serif;
+  background:var(--surface); color:var(--text); outline:none;
+  transition:border-color 0.2s;
+}
+.search-input:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(14,165,233,0.1); }
+.search-icon { position:absolute; left:11px; top:50%; transform:translateY(-50%); color:var(--muted2); font-size:14px; }
 
-  /* ── FILTER ROW ── */
-  .filter-row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-  .filter-row .section-label { font-size:9px; font-weight:700; color:var(--muted2); text-transform:uppercase; letter-spacing:1.2px; white-space:nowrap; }
+/* ── SECTION HEADER ── */
+.section-hdr {
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+  margin-bottom:4px;
+}
+.section-hdr-left { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
 
-  /* ── FADE IN ── */
-  @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-  .kpi { animation: fadeUp 0.5s ease both; }
-  .kpi:nth-child(1){animation-delay:.05s} .kpi:nth-child(2){animation-delay:.1s}
-  .kpi:nth-child(3){animation-delay:.15s} .kpi:nth-child(4){animation-delay:.2s}
-  .kpi:nth-child(5){animation-delay:.25s}
-  .chart-box { animation: fadeUp 0.5s ease 0.2s both; }
+/* ── STAT ROW ── */
+.stat-row {
+  display:grid; grid-template-columns:repeat(2,1fr); gap:12px;
+}
+@media(min-width:600px){ .stat-row { grid-template-columns:repeat(4,1fr); } }
+.stat-card {
+  background:var(--surface); border:1px solid var(--border2); border-radius:12px;
+  padding:16px; box-shadow:0 1px 6px rgba(0,0,0,0.05);
+}
+.stat-card-label { font-size:9px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+.stat-card-val   { font-size:20px; font-weight:700; font-family:'DM Mono',monospace; }
+.stat-card-sub   { font-size:10px; color:var(--muted); margin-top:3px; }
+
+/* ── ALERTAS ── */
+.alert-list { display:flex; flex-direction:column; gap:6px; max-height:300px; overflow-y:auto; }
+.alert-item {
+  display:flex; align-items:center; gap:10px; padding:9px 12px;
+  background:rgba(244,63,94,0.04); border-radius:9px;
+  border:1px solid rgba(244,63,94,0.12); border-left:3px solid var(--rose);
+  font-size:11px;
+}
+.alert-name { flex:1; color:var(--text2); font-weight:500; }
+.alert-val  { font-family:'DM Mono',monospace; color:var(--rose); font-size:10px; }
+
+/* ── FOOTER ── */
+.footer-import {
+  padding:24px 20px 36px; border-top:1px solid var(--border2);
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+}
+.import-label { font-size:9px; color:var(--muted2); letter-spacing:1.5px; text-transform:uppercase; font-weight:600; }
+.import-zone {
+  display:flex; align-items:center; gap:10px;
+  padding:10px 24px; border:1px dashed var(--border); border-radius:10px;
+  cursor:pointer; transition:all 0.2s; background:transparent;
+  color:var(--muted); font-size:11px; font-weight:500;
+}
+.import-zone:hover { border-color:var(--teal); color:var(--teal); background:rgba(14,165,233,0.04); }
+.import-zone.loading { border-color:var(--teal); color:var(--teal); animation:pulse 1s infinite; }
+.import-zone.success  { border-color:var(--green); color:var(--green); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+#xlsxInput { display:none; }
+.import-status { font-size:10px; color:var(--muted2); min-height:14px; }
+.import-status.ok  { color:var(--green2); }
+.import-status.err { color:var(--rose); }
+.dev-credit { font-size:10px; color:var(--muted2); opacity:0.5; letter-spacing:0.5px; margin-top:8px; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width:4px; height:4px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
+
+/* ── FILTER ROW ── */
+.filter-row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.filter-row .section-label { font-size:9px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:1.2px; white-space:nowrap; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+.kpi { animation: fadeUp 0.4s ease both; }
+.kpi:nth-child(1){animation-delay:.05s} .kpi:nth-child(2){animation-delay:.1s}
+.kpi:nth-child(3){animation-delay:.15s} .kpi:nth-child(4){animation-delay:.2s}
+.kpi:nth-child(5){animation-delay:.25s}
 </style>
 </head>
 <body>
@@ -301,37 +315,27 @@
   </div>
 </header>
 
+<!-- NAVEGAÇÃO -->
+<nav class="nav-tabs">
+  <button class="nav-tab active" onclick="showTab('vendas')">📊 Vendas</button>
+  <button class="nav-tab" onclick="showTab('estoque')">📦 Estoque</button>
+  <button class="nav-tab" onclick="showTab('cmv')">💰 CMV</button>
+  <button class="nav-tab" onclick="showTab('consumo')">🔄 Consumo</button>
+</nav>
+
 <main>
-  <!-- KPIs -->
+
+<!-- ════════════════════════════════ ABA VENDAS ════════════════════════════════ -->
+<div class="tab-panel active" id="tab-vendas">
+
   <div class="kpi-grid">
-    <div class="kpi">
-      <div class="kpi-label">Receita Total</div>
-      <div class="kpi-value red" id="kpiReceita">—</div>
-      <div class="kpi-sub" id="kpiReceitaSub">Salão + Delivery</div>
-    </div>
-    <div class="kpi amber">
-      <div class="kpi-label">Qtd. Vendida</div>
-      <div class="kpi-value amber" id="kpiQtd">—</div>
-      <div class="kpi-sub">itens no período</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">CMV Teórico</div>
-      <div class="kpi-value red" id="kpiCmv">—</div>
-      <div class="kpi-sub" id="kpiCmvSub">custo estimado</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">Em Ruptura</div>
-      <div class="kpi-value red" id="kpiRuptura">—</div>
-      <div class="kpi-sub">insumos críticos</div>
-    </div>
-    <div class="kpi green">
-      <div class="kpi-label">SKUs Vendidos</div>
-      <div class="kpi-value green" id="kpiProd">—</div>
-      <div class="kpi-sub">produtos distintos</div>
-    </div>
+    <div class="kpi teal"><div class="kpi-label">Receita Total</div><div class="kpi-value teal" id="kpiReceita">—</div><div class="kpi-sub" id="kpiReceitaSub">Salão + Delivery</div></div>
+    <div class="kpi amber"><div class="kpi-label">Qtd. Vendida</div><div class="kpi-value amber" id="kpiQtd">—</div><div class="kpi-sub">itens no período</div></div>
+    <div class="kpi"><div class="kpi-label">CMV Teórico</div><div class="kpi-value teal" id="kpiCmv">—</div><div class="kpi-sub" id="kpiCmvSub">custo estimado</div></div>
+    <div class="kpi rose"><div class="kpi-label">Em Ruptura</div><div class="kpi-value rose" id="kpiRuptura">—</div><div class="kpi-sub">insumos críticos</div></div>
+    <div class="kpi green"><div class="kpi-label">SKUs Vendidos</div><div class="kpi-value green" id="kpiProd">—</div><div class="kpi-sub">produtos distintos</div></div>
   </div>
 
-  <!-- FILTRO -->
   <div class="filter-row">
     <div class="section-label">Canal de venda</div>
     <div class="local-pills">
@@ -341,10 +345,9 @@
     </div>
   </div>
 
-  <!-- LINHA 1 -->
   <div class="row-60-40">
     <div class="chart-box">
-      <div class="chart-header"><div class="chart-title">Receita por Categoria</div><div class="chart-hint">toque para filtrar</div></div>
+      <div class="chart-header"><div class="chart-title">Receita por Categoria</div><div class="chart-hint">clique para filtrar</div></div>
       <div class="bars-area" id="catBars"></div>
     </div>
     <div class="chart-box">
@@ -359,10 +362,9 @@
     </div>
   </div>
 
-  <!-- LINHA 2 -->
   <div class="row-60-40">
     <div class="chart-box">
-      <div class="chart-header"><div class="chart-title">Top 10 Produtos</div><div class="chart-hint">toque para filtrar</div></div>
+      <div class="chart-header"><div class="chart-title">Top 10 Produtos</div><div class="chart-hint">clique para filtrar</div></div>
       <div class="bars-area" id="prodBars"></div>
     </div>
     <div class="chart-box">
@@ -377,7 +379,6 @@
     </div>
   </div>
 
-  <!-- LINHA 3 -->
   <div class="row-60-40">
     <div class="chart-box">
       <div class="chart-header"><div class="chart-title">Análise de Produtos</div></div>
@@ -391,14 +392,124 @@
       <div class="alert-list" id="alertList"></div>
     </div>
   </div>
+</div>
+
+<!-- ════════════════════════════════ ABA ESTOQUE ════════════════════════════════ -->
+<div class="tab-panel" id="tab-estoque">
+
+  <div class="stat-row">
+    <div class="stat-card"><div class="stat-card-label">Total de Insumos</div><div class="stat-card-val" style="color:var(--teal2)" id="estTotalItens">108</div><div class="stat-card-sub">itens cadastrados</div></div>
+    <div class="stat-card"><div class="stat-card-label">Em Ruptura</div><div class="stat-card-val" style="color:var(--rose)" id="estRuptura">—</div><div class="stat-card-sub">estoque zerado/negativo</div></div>
+    <div class="stat-card"><div class="stat-card-label">Abaixo do Mínimo</div><div class="stat-card-val" style="color:#D97706" id="estBaixo">—</div><div class="stat-card-sub">requer reposição</div></div>
+    <div class="stat-card"><div class="stat-card-label">Estoque OK</div><div class="stat-card-val" style="color:var(--green2)" id="estOk">—</div><div class="stat-card-sub">insumos adequados</div></div>
+  </div>
+
+  <div class="chart-box">
+    <div class="section-hdr">
+      <div class="section-hdr-left">
+        <div class="chart-title">Estoque Detalhado por Insumo</div>
+        <div class="local-pills">
+          <button class="local-pill active" onclick="filterEstoque('Todos')">Todos</button>
+          <button class="local-pill" onclick="filterEstoque('Ruptura')">🔴 Ruptura</button>
+          <button class="local-pill" onclick="filterEstoque('Abaixo do mínimo')">🟡 Abaixo Mínimo</button>
+          <button class="local-pill" onclick="filterEstoque('OK')">🟢 OK</button>
+        </div>
+      </div>
+      <div class="search-wrap" style="width:200px">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" type="text" placeholder="Buscar insumo..." oninput="searchEstoque(this.value)" id="estSearch">
+      </div>
+    </div>
+    <div class="table-wrap" style="margin-top:16px">
+      <table>
+        <thead><tr>
+          <th>Insumo</th><th>Unidade</th><th>Estoque Atual</th>
+          <th>Estoque Mín.</th><th>Consumo 30d</th>
+          <th>Projetado</th><th>Cobertura</th><th>Compra Sug.</th><th>Status</th>
+        </tr></thead>
+        <tbody id="estoqueTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ ABA CMV ════════════════════════════════ -->
+<div class="tab-panel" id="tab-cmv">
+
+  <div class="stat-row">
+    <div class="stat-card"><div class="stat-card-label">CMV Médio Geral</div><div class="stat-card-val" style="color:var(--teal2)" id="cmvMedio">—</div><div class="stat-card-sub">produtos com custo base</div></div>
+    <div class="stat-card"><div class="stat-card-label">Custo Teórico Total</div><div class="stat-card-val" style="color:var(--rose)" id="cmvCustoTotal">—</div><div class="stat-card-sub">no período 30d</div></div>
+    <div class="stat-card"><div class="stat-card-label">Produtos c/ Base</div><div class="stat-card-val" style="color:var(--green2)" id="cmvComBase">—</div><div class="stat-card-sub">fichas técnicas OK</div></div>
+    <div class="stat-card"><div class="stat-card-label">Sem Custo Base</div><div class="stat-card-val" style="color:#D97706" id="cmvSemBase">—</div><div class="stat-card-sub">sem ficha técnica</div></div>
+  </div>
+
+  <div class="chart-box">
+    <div class="section-hdr">
+      <div class="section-hdr-left">
+        <div class="chart-title">Análise CMV por Produto</div>
+        <div class="local-pills">
+          <button class="local-pill active" onclick="filterCmv('Todos')">Todos</button>
+          <button class="local-pill" onclick="filterCmv('OK')">✅ Com base</button>
+          <button class="local-pill" onclick="filterCmv('Sem custo base')">⚠ Sem base</button>
+        </div>
+      </div>
+      <div class="search-wrap" style="width:200px">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" type="text" placeholder="Buscar produto..." oninput="searchCmv(this.value)">
+      </div>
+    </div>
+    <div class="table-wrap" style="margin-top:16px">
+      <table>
+        <thead><tr>
+          <th>#</th><th>Produto</th><th>Qtd Vendida</th>
+          <th>Receita</th><th>Custo Unit.</th>
+          <th>Custo Total</th><th>CMV%</th><th>Preço Aplic.</th><th>Status</th>
+        </tr></thead>
+        <tbody id="cmvTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ ABA CONSUMO ════════════════════════════════ -->
+<div class="tab-panel" id="tab-consumo">
+
+  <div class="stat-row">
+    <div class="stat-card"><div class="stat-card-label">Insumos Monitorados</div><div class="stat-card-val" style="color:var(--teal2)">122</div><div class="stat-card-sub">com consumo teórico</div></div>
+    <div class="stat-card"><div class="stat-card-label">Maior Consumo</div><div class="stat-card-val" style="color:var(--rose)" id="consTop">—</div><div class="stat-card-sub" id="consTopNome">insumo crítico</div></div>
+    <div class="stat-card"><div class="stat-card-label">Estoque Projetado</div><div class="stat-card-val" style="color:#D97706" id="consProjNeg">—</div><div class="stat-card-sub">itens projetados negativos</div></div>
+    <div class="stat-card"><div class="stat-card-label">Cobertura Média</div><div class="stat-card-val" style="color:var(--green2)" id="consCobert">—</div><div class="stat-card-sub">dias estimados de estoque</div></div>
+  </div>
+
+  <div class="chart-box">
+    <div class="section-hdr">
+      <div class="section-hdr-left">
+        <div class="chart-title">Consumo Teórico de Insumos — 30 dias</div>
+      </div>
+      <div class="search-wrap" style="width:200px">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" type="text" placeholder="Buscar insumo..." oninput="searchConsumo(this.value)">
+      </div>
+    </div>
+    <div class="table-wrap" style="margin-top:16px">
+      <table>
+        <thead><tr>
+          <th>#</th><th>Ingrediente</th><th>Unidade</th>
+          <th>Consumo 30d</th><th>Estoque Atual</th>
+          <th>Projetado</th><th>Situação</th>
+        </tr></thead>
+        <tbody id="consumoTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 </main>
 
-<!-- FOOTER -->
 <div class="footer-import">
   <div class="import-label">Atualizar dados</div>
   <div class="import-zone" id="importZone" onclick="document.getElementById('xlsxInput').click()">
-    <span>📂</span>
-    <span id="importZoneText">Importar novo Excel</span>
+    <span>📂</span><span id="importZoneText">Importar novo Excel</span>
   </div>
   <input type="file" id="xlsxInput" accept=".xlsx,.xls" onchange="handleXlsx(this)">
   <div class="import-status" id="importStatus"></div>
@@ -407,9 +518,147 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
-// ═══════════════════════════════════
-// DADOS PADRÃO (base atual do Excel)
-// ═══════════════════════════════════
+// ═══════════════ DADOS ESTOQUE/CMV/CONSUMO ═══════════════
+const DATA_ESTOQUE = [{"Tipo": "Insumo", "Insumo": "Acelga", "Unidade": "Kg", "Estoque_Sistema": -4.928, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 9.4608, "Estoque_Projetado": -14.3888, "Cobertura_Dias": -45.62658548959919, "Compra_Sugerida": 14.3888, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Açúcar", "Unidade": "Kg", "Estoque_Sistema": -2.9154, "Estoque_Minimo": 10.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 4.444463893584191, "Estoque_Projetado": -7.359863893584191, "Cobertura_Dias": -49.678863884180906, "Compra_Sugerida": 17.35986389358419, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Água", "Unidade": "L", "Estoque_Sistema": -52.0496, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 61.37582185724316, "Estoque_Projetado": -113.42542185724315, "Cobertura_Dias": -55.441418994468805, "Compra_Sugerida": 113.42542185724315, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Alga Nori 1/2", "Unidade": "Un", "Estoque_Sistema": -694.0, "Estoque_Minimo": 2000.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -694.0, "Cobertura_Dias": 0.0, "Compra_Sugerida": 2694.0, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Alho", "Unidade": "Kg", "Estoque_Sistema": -0.327, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.10912668073560444, "Estoque_Projetado": -0.43612668073560446, "Cobertura_Dias": -119.89552265195326, "Compra_Sugerida": 0.43612668073560446, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Amido de milho", "Unidade": "Kg", "Estoque_Sistema": -0.583, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.9299999999999999, "Estoque_Projetado": -1.513, "Cobertura_Dias": -48.80645161290323, "Compra_Sugerida": 1.513, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Anchova", "Unidade": "Kg", "Estoque_Sistema": -0.2, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 3.2, "Estoque_Projetado": -3.4000000000000004, "Cobertura_Dias": -31.875, "Compra_Sugerida": 3.4000000000000004, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Arroz", "Unidade": "Kg", "Estoque_Sistema": -66.68, "Estoque_Minimo": 60.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 15.553498199279717, "Estoque_Projetado": -82.23349819927972, "Cobertura_Dias": -158.61415318726426, "Compra_Sugerida": 142.23349819927972, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Atum", "Unidade": "Kg", "Estoque_Sistema": -10.45, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 13.93, "Estoque_Projetado": -24.38, "Cobertura_Dias": -52.505384063173004, "Compra_Sugerida": 24.38, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Avocado", "Unidade": "Kg", "Estoque_Sistema": -0.12, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.12, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.12, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Banana", "Unidade": "Kg", "Estoque_Sistema": -1.95, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 4.68, "Estoque_Projetado": -6.63, "Cobertura_Dias": -42.5, "Compra_Sugerida": 6.63, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Batata", "Unidade": "Kg", "Estoque_Sistema": -0.7, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.9, "Estoque_Projetado": -1.6, "Cobertura_Dias": -53.33333333333333, "Compra_Sugerida": 1.6, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Batata doce", "Unidade": "Kg", "Estoque_Sistema": -1.45, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 3.8979999999999997, "Estoque_Projetado": -5.348, "Cobertura_Dias": -41.159569009748594, "Compra_Sugerida": 5.348, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Berinjela", "Unidade": "Kg", "Estoque_Sistema": -0.852, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 2.308, "Estoque_Projetado": -3.1599999999999997, "Cobertura_Dias": -41.074523396880416, "Compra_Sugerida": 3.1599999999999997, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Bolo de laranja pronto", "Unidade": "Kg", "Estoque_Sistema": -0.36, "Estoque_Minimo": 1.2, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.32, "Estoque_Projetado": -1.6800000000000002, "Cobertura_Dias": -38.18181818181818, "Compra_Sugerida": 2.88, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Brócolis", "Unidade": "Kg", "Estoque_Sistema": -4.071, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 7.289000000000001, "Estoque_Projetado": -11.36, "Cobertura_Dias": -46.75538482645081, "Compra_Sugerida": 11.36, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Calda sorvete", "Unidade": "Kg", "Estoque_Sistema": -0.48, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.38, "Estoque_Projetado": -1.8599999999999999, "Cobertura_Dias": -40.43478260869565, "Compra_Sugerida": 1.8599999999999999, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Camarão com casca e cabeça", "Unidade": "Kg", "Estoque_Sistema": -0.22, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.22, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.22, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Camarão limpo", "Unidade": "Kg", "Estoque_Sistema": -3.832, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 6.1160000000000005, "Estoque_Projetado": -9.948, "Cobertura_Dias": -48.796599084368864, "Compra_Sugerida": 9.948, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Cebola", "Unidade": "Kg", "Estoque_Sistema": -0.904, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.8781290322580645, "Estoque_Projetado": -1.7821290322580645, "Cobertura_Dias": -60.88384394974653, "Compra_Sugerida": 1.7821290322580645, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Cebola roxa", "Unidade": "Kg", "Estoque_Sistema": -0.27, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.6, "Estoque_Projetado": -0.87, "Cobertura_Dias": -43.5, "Compra_Sugerida": 0.87, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Cebolinha", "Unidade": "Kg", "Estoque_Sistema": -0.408, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.079552251486831, "Estoque_Projetado": -1.487552251486831, "Cobertura_Dias": -41.33803387760273, "Compra_Sugerida": 1.487552251486831, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Cenoura", "Unidade": "Kg", "Estoque_Sistema": -5.1264, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 8.677287401574802, "Estoque_Projetado": -13.803687401574802, "Cobertura_Dias": -47.72351114843667, "Compra_Sugerida": 13.803687401574802, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Corante vermelho", "Unidade": "Kg", "Estoque_Sistema": -0.053, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.053, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.053, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Cream cheese", "Unidade": "Kg", "Estoque_Sistema": -9.018, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.65, "Estoque_Projetado": -9.668000000000001, "Cobertura_Dias": -446.21538461538466, "Compra_Sugerida": 9.668000000000001, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Curry indiano", "Unidade": "Kg", "Estoque_Sistema": -0.028, "Estoque_Minimo": 1.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.036000000000000004, "Estoque_Projetado": -0.064, "Cobertura_Dias": -53.33333333333333, "Compra_Sugerida": 1.064, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Edamame", "Unidade": "Kg", "Estoque_Sistema": -0.15, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.95, "Estoque_Projetado": -2.1, "Cobertura_Dias": -32.30769230769231, "Compra_Sugerida": 2.1, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Enguia", "Unidade": "Kg", "Estoque_Sistema": -0.12, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.12, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.12, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Extrato de tomate", "Unidade": "Kg", "Estoque_Sistema": -0.1526, "Estoque_Minimo": 0.54, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.1526, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.6926000000000001, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Farinha de trigo", "Unidade": "Kg", "Estoque_Sistema": -2.963, "Estoque_Minimo": 15.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -2.963, "Cobertura_Dias": 0.0, "Compra_Sugerida": 17.963, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Fermento químico", "Unidade": "Kg", "Estoque_Sistema": -0.258, "Estoque_Minimo": 1.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.258, "Cobertura_Dias": 0.0, "Compra_Sugerida": 1.258, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Filé mignon", "Unidade": "Kg", "Estoque_Sistema": -4.555, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 7.039999999999999, "Estoque_Projetado": -11.594999999999999, "Cobertura_Dias": -49.41051136363637, "Compra_Sugerida": 11.594999999999999, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Flor comestível", "Unidade": "Un", "Estoque_Sistema": -34.0, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 201.0, "Estoque_Projetado": -235.0, "Cobertura_Dias": -35.07462686567164, "Compra_Sugerida": 235.0, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Flor de sal", "Unidade": "Kg", "Estoque_Sistema": -0.061, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.305, "Estoque_Projetado": -0.366, "Cobertura_Dias": -36.0, "Compra_Sugerida": 0.366, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Foie gras", "Unidade": "Kg", "Estoque_Sistema": -0.14, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.14, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.14, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Folha de arroz", "Unidade": "Un", "Estoque_Sistema": -10.0, "Estoque_Minimo": 120.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 28.0, "Estoque_Projetado": -38.0, "Cobertura_Dias": -40.714285714285715, "Compra_Sugerida": 158.0, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Gengibre", "Unidade": "Kg", "Estoque_Sistema": -0.289, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.18504616406644822, "Estoque_Projetado": -0.4740461640664482, "Cobertura_Dias": -76.85317333509647, "Compra_Sugerida": 0.4740461640664482, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Gengibre em conserva", "Unidade": "Kg", "Estoque_Sistema": -3.875, "Estoque_Minimo": 5.6, "Custo_Unitario": 0, "Consumo_Teorico_30d": 7.109999999999999, "Estoque_Projetado": -10.985, "Cobertura_Dias": -46.35021097046413, "Compra_Sugerida": 16.585, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Gergelim Misto", "Unidade": "Kg", "Estoque_Sistema": -0.257, "Estoque_Minimo": 2.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.3659999999999999, "Estoque_Projetado": -1.6229999999999998, "Cobertura_Dias": -35.64421669106881, "Compra_Sugerida": 3.6229999999999998, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Glutamato monossódico", "Unidade": "Kg", "Estoque_Sistema": -0.4884, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.9612521672032431, "Estoque_Projetado": -1.4496521672032432, "Cobertura_Dias": -45.24261843032291, "Compra_Sugerida": 1.4496521672032432, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Haddock", "Unidade": "Kg", "Estoque_Sistema": -0.04, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.04, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.04, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Hondashi", "Unidade": "Kg", "Estoque_Sistema": -0.134, "Estoque_Minimo": 1.5, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.07441030999651688, "Estoque_Projetado": -0.20841030999651688, "Cobertura_Dias": -84.0247715698023, "Compra_Sugerida": 1.7084103099965169, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Katsuobushi", "Unidade": "Kg", "Estoque_Sistema": -0.02, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.055056179775280906, "Estoque_Projetado": -0.07505617977528091, "Cobertura_Dias": -40.89795918367347, "Compra_Sugerida": 0.07505617977528091, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Ketchup", "Unidade": "Kg", "Estoque_Sistema": -0.144, "Estoque_Minimo": 760.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.1782857142857143, "Estoque_Projetado": -0.3222857142857143, "Cobertura_Dias": -54.23076923076923, "Compra_Sugerida": 760.3222857142857, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Kimuchi", "Unidade": "Kg", "Estoque_Sistema": -0.078, "Estoque_Minimo": 1.35, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.24000000000000002, "Estoque_Projetado": -0.318, "Cobertura_Dias": -39.75, "Compra_Sugerida": 1.6680000000000001, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Kombu", "Unidade": "Kg", "Estoque_Sistema": -0.229, "Estoque_Minimo": 0.3, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0036577165112620393, "Estoque_Projetado": -0.23265771651126205, "Cobertura_Dias": -1908.22100997915, "Compra_Sugerida": 0.532657716511262, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Limão siciliano", "Unidade": "Kg", "Estoque_Sistema": -0.464, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.4300000000000002, "Estoque_Projetado": -1.8940000000000001, "Cobertura_Dias": -39.73426573426573, "Compra_Sugerida": 1.8940000000000001, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Limão taiti", "Unidade": "Kg", "Estoque_Sistema": -2.16, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 4.8, "Estoque_Projetado": -6.96, "Cobertura_Dias": -43.5, "Compra_Sugerida": 6.96, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Lombo suíno", "Unidade": "Kg", "Estoque_Sistema": -8.926, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 21.805670459162943, "Estoque_Projetado": -30.73167045916294, "Cobertura_Dias": -42.28029197733181, "Compra_Sugerida": 30.73167045916294, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Macarrão lamen", "Unidade": "Kg", "Estoque_Sistema": -2.6, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 7.9, "Estoque_Projetado": -10.5, "Cobertura_Dias": -39.87341772151898, "Compra_Sugerida": 10.5, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Macarrão udon", "Unidade": "Kg", "Estoque_Sistema": -0.6, "Estoque_Minimo": 2.4, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.6, "Estoque_Projetado": -2.2, "Cobertura_Dias": -41.25, "Compra_Sugerida": 4.6, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Macarrão yakisoba", "Unidade": "Kg", "Estoque_Sistema": -2.76, "Estoque_Minimo": 10000.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -2.76, "Cobertura_Dias": 0.0, "Compra_Sugerida": 10002.76, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Maionese kewpie", "Unidade": "Kg", "Estoque_Sistema": -0.05, "Estoque_Minimo": 1.35, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.14, "Estoque_Projetado": -0.19, "Cobertura_Dias": -40.71428571428571, "Compra_Sugerida": 1.54, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Maionese tradicional", "Unidade": "Kg", "Estoque_Sistema": -0.544, "Estoque_Minimo": 3.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.142857142857143, "Estoque_Projetado": -1.686857142857143, "Cobertura_Dias": -44.28, "Compra_Sugerida": 4.686857142857143, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Manteiga", "Unidade": "Kg", "Estoque_Sistema": -0.675, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.6545454545454545, "Estoque_Projetado": -2.3295454545454546, "Cobertura_Dias": -42.239010989010985, "Compra_Sugerida": 2.3295454545454546, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Massa guioza", "Unidade": "Un", "Estoque_Sistema": -232.0, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 620.0, "Estoque_Projetado": -852.0, "Cobertura_Dias": -41.225806451612904, "Compra_Sugerida": 852.0, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Massa harumaki", "Unidade": "Un", "Estoque_Sistema": -53.0, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 100.0, "Estoque_Projetado": -153.0, "Cobertura_Dias": -45.9, "Compra_Sugerida": 153.0, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Misso", "Unidade": "Kg", "Estoque_Sistema": -1.013, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -1.013, "Cobertura_Dias": 0.0, "Compra_Sugerida": 1.013, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Molho inglês", "Unidade": "L", "Estoque_Sistema": -0.024, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.024, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.024, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Morango", "Unidade": "Kg", "Estoque_Sistema": -0.7, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.72, "Estoque_Projetado": -1.42, "Cobertura_Dias": -59.166666666666664, "Compra_Sugerida": 1.42, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Mostarda", "Unidade": "Kg", "Estoque_Sistema": -0.032, "Estoque_Minimo": 0.76, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.125, "Estoque_Projetado": -0.157, "Cobertura_Dias": -37.68, "Compra_Sugerida": 0.917, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Moyashi", "Unidade": "Kg", "Estoque_Sistema": -0.78, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 2.37, "Estoque_Projetado": -3.1500000000000004, "Cobertura_Dias": -39.87341772151899, "Compra_Sugerida": 3.1500000000000004, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Muçarela", "Unidade": "Kg", "Estoque_Sistema": -0.42, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.1400000000000001, "Estoque_Projetado": -1.56, "Cobertura_Dias": -41.05263157894736, "Compra_Sugerida": 1.56, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Nabo", "Unidade": "Kg", "Estoque_Sistema": -3.592, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.3878571428571429, "Estoque_Projetado": -3.979857142857143, "Cobertura_Dias": -307.8342541436464, "Compra_Sugerida": 3.979857142857143, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Naruto", "Unidade": "Kg", "Estoque_Sistema": -0.52, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.58, "Estoque_Projetado": -2.1, "Cobertura_Dias": -39.87341772151899, "Compra_Sugerida": 2.1, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Nutella", "Unidade": "Kg", "Estoque_Sistema": -0.54, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.2959999999999998, "Estoque_Projetado": -1.8359999999999999, "Cobertura_Dias": -42.5, "Compra_Sugerida": 1.8359999999999999, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Óleo de gergelim", "Unidade": "L", "Estoque_Sistema": -0.204, "Estoque_Minimo": 2.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.2818002184915833, "Estoque_Projetado": -0.4858002184915833, "Cobertura_Dias": -51.71751332472011, "Compra_Sugerida": 2.4858002184915833, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Óleo de gergelim com pimenta (La Yu)", "Unidade": "L", "Estoque_Sistema": -0.026, "Estoque_Minimo": 0.066, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.026, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.092, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Óleo de soja", "Unidade": "L", "Estoque_Sistema": -2.148, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 4.421983173877459, "Estoque_Projetado": -6.569983173877459, "Cobertura_Dias": -44.57264703779846, "Compra_Sugerida": 6.569983173877459, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Ovo", "Unidade": "Un", "Estoque_Sistema": -26.0, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 79.0, "Estoque_Projetado": -105.0, "Cobertura_Dias": -39.87341772151899, "Compra_Sugerida": 105.0, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Panko", "Unidade": "Kg", "Estoque_Sistema": -2.37, "Estoque_Minimo": 8.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -2.37, "Cobertura_Dias": 0.0, "Compra_Sugerida": 10.370000000000001, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Peito de frango", "Unidade": "Kg", "Estoque_Sistema": -4.125, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 10.86, "Estoque_Projetado": -14.985, "Cobertura_Dias": -41.39502762430939, "Compra_Sugerida": 14.985, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Pepino", "Unidade": "Kg", "Estoque_Sistema": -2.953, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 11.25, "Estoque_Projetado": -14.203, "Cobertura_Dias": -37.87466666666666, "Compra_Sugerida": 14.203, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Pescoço de galinha", "Unidade": "Kg", "Estoque_Sistema": -2.018, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 2.421987096774193, "Estoque_Projetado": -4.439987096774193, "Cobertura_Dias": -54.996004347270166, "Compra_Sugerida": 4.439987096774193, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Petit Gateau produto", "Unidade": "Un", "Estoque_Sistema": -6.0, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -6.0, "Cobertura_Dias": 0.0, "Compra_Sugerida": 6.0, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Picles", "Unidade": "Kg", "Estoque_Sistema": -0.04, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.14285714285714288, "Estoque_Projetado": -0.18285714285714288, "Cobertura_Dias": -38.400000000000006, "Compra_Sugerida": 0.18285714285714288, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Pimenta dedo de moça", "Unidade": "Kg", "Estoque_Sistema": -0.038, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.08, "Estoque_Projetado": -0.118, "Cobertura_Dias": -44.25, "Compra_Sugerida": 0.118, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Pimenta do reino", "Unidade": "Kg", "Estoque_Sistema": -0.114, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.04836984979681278, "Estoque_Projetado": -0.1623698497968128, "Cobertura_Dias": -100.70520198773396, "Compra_Sugerida": 0.1623698497968128, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Pimenta Sriracha", "Unidade": "Kg", "Estoque_Sistema": -0.01, "Estoque_Minimo": 0.793, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.028, "Estoque_Projetado": -0.038, "Cobertura_Dias": -40.714285714285715, "Compra_Sugerida": 0.8310000000000001, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Polvo", "Unidade": "Kg", "Estoque_Sistema": -0.3924, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.589655172413793, "Estoque_Projetado": -0.9820551724137929, "Cobertura_Dias": -49.96421052631579, "Compra_Sugerida": 0.9820551724137929, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Raíz de bardana", "Unidade": "Kg", "Estoque_Sistema": -0.553, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.9444444444444446, "Estoque_Projetado": -2.4974444444444446, "Cobertura_Dias": -38.532, "Compra_Sugerida": 2.4974444444444446, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Repolho", "Unidade": "Kg", "Estoque_Sistema": -7.4476, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 13.05858470086099, "Estoque_Projetado": -20.50618470086099, "Cobertura_Dias": -47.10966426440292, "Compra_Sugerida": 20.50618470086099, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Robalo", "Unidade": "Kg", "Estoque_Sistema": -4.19, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -4.19, "Cobertura_Dias": 0.0, "Compra_Sugerida": 4.19, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Sake licoroso", "Unidade": "L", "Estoque_Sistema": -0.08, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.22022471910112365, "Estoque_Projetado": -0.30022471910112364, "Cobertura_Dias": -40.897959183673464, "Compra_Sugerida": 0.30022471910112364, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Sake seco", "Unidade": "L", "Estoque_Sistema": -0.472, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.7942079746311181, "Estoque_Projetado": -1.2662079746311181, "Cobertura_Dias": -47.82908312722096, "Compra_Sugerida": 1.2662079746311181, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Sal", "Unidade": "Kg", "Estoque_Sistema": -0.8426, "Estoque_Minimo": 6.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.5026702429358476, "Estoque_Projetado": -2.3452702429358476, "Cobertura_Dias": -46.82205401939218, "Compra_Sugerida": 8.345270242935847, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Salmão", "Unidade": "Kg", "Estoque_Sistema": -64.751, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 21.580000000000002, "Estoque_Projetado": -86.331, "Cobertura_Dias": -120.01529193697868, "Compra_Sugerida": 86.331, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Salsa frisada", "Unidade": "Kg", "Estoque_Sistema": -0.042, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.117, "Estoque_Projetado": -0.159, "Cobertura_Dias": -40.76923076923077, "Compra_Sugerida": 0.159, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Salsa trufada", "Unidade": "Kg", "Estoque_Sistema": -0.128, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.865, "Estoque_Projetado": -0.993, "Cobertura_Dias": -34.4393063583815, "Compra_Sugerida": 0.993, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Salsinha", "Unidade": "Kg", "Estoque_Sistema": -0.034, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.11142857142857143, "Estoque_Projetado": -0.14542857142857143, "Cobertura_Dias": -39.15384615384615, "Compra_Sugerida": 0.14542857142857143, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Shimeji", "Unidade": "Kg", "Estoque_Sistema": -5.143, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 9.995454545454546, "Estoque_Projetado": -15.138454545454547, "Cobertura_Dias": -45.43601637107776, "Compra_Sugerida": 15.138454545454547, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Shisô", "Unidade": "Kg", "Estoque_Sistema": -0.119, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 364.0, "Estoque_Projetado": -364.119, "Cobertura_Dias": -30.009807692307696, "Compra_Sugerida": 364.119, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Shoyu premium", "Unidade": "L", "Estoque_Sistema": -2.153, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.888592100783112, "Estoque_Projetado": -4.041592100783112, "Cobertura_Dias": -64.20007950537203, "Compra_Sugerida": 4.041592100783112, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Shoyu tradicional", "Unidade": "L", "Estoque_Sistema": -2.3048, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.9121979345607865, "Estoque_Projetado": -4.216997934560787, "Cobertura_Dias": -66.15943660972614, "Compra_Sugerida": 4.216997934560787, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Skin de Salmão", "Unidade": "Kg", "Estoque_Sistema": -0.08, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.08, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.08, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Sorvete", "Unidade": "L", "Estoque_Sistema": -0.9, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 3.3000000000000003, "Estoque_Projetado": -4.2, "Cobertura_Dias": -38.18181818181818, "Compra_Sugerida": 4.2, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Suco de Laranja", "Unidade": "L", "Estoque_Sistema": -0.2, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.550561797752809, "Estoque_Projetado": -0.750561797752809, "Cobertura_Dias": -40.897959183673464, "Compra_Sugerida": 0.750561797752809, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Suco de Limão", "Unidade": "L", "Estoque_Sistema": -0.4822, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.2752808988764045, "Estoque_Projetado": -0.7574808988764046, "Cobertura_Dias": -82.54995918367348, "Compra_Sugerida": 0.7574808988764046, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Suco de Limão Siciliano", "Unidade": "L", "Estoque_Sistema": -0.1, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.2752808988764045, "Estoque_Projetado": -0.3752808988764045, "Cobertura_Dias": -40.897959183673464, "Compra_Sugerida": 0.3752808988764045, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Sucrilhos", "Unidade": "Kg", "Estoque_Sistema": -0.48, "Estoque_Minimo": 1.24, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.38, "Estoque_Projetado": -1.8599999999999999, "Cobertura_Dias": -40.43478260869565, "Compra_Sugerida": 3.0999999999999996, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Tempero para sushi", "Unidade": "L", "Estoque_Sistema": -0.535, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 3.657716511262039, "Estoque_Projetado": -4.192716511262039, "Cobertura_Dias": -34.3879835822657, "Compra_Sugerida": 4.192716511262039, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Tobiko", "Unidade": "Kg", "Estoque_Sistema": -0.05, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.14, "Estoque_Projetado": -0.19, "Cobertura_Dias": -40.71428571428571, "Compra_Sugerida": 0.19, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Tofu", "Unidade": "Kg", "Estoque_Sistema": -1.59, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 5.869999999999999, "Estoque_Projetado": -7.459999999999999, "Cobertura_Dias": -38.12606473594549, "Compra_Sugerida": 7.459999999999999, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Togarashi", "Unidade": "Kg", "Estoque_Sistema": -0.001, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.013000000000000001, "Estoque_Projetado": -0.014000000000000002, "Cobertura_Dias": -32.30769230769231, "Compra_Sugerida": 0.014000000000000002, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Tomate cereja", "Unidade": "Kg", "Estoque_Sistema": -0.7, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 1.9500000000000002, "Estoque_Projetado": -2.6500000000000004, "Cobertura_Dias": -40.769230769230774, "Compra_Sugerida": 2.6500000000000004, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Vieira", "Unidade": "Kg", "Estoque_Sistema": -0.16, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.16, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.16, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Vinagre de vinho tinto", "Unidade": "L", "Estoque_Sistema": -0.4176, "Estoque_Minimo": 0.0, "Custo_Unitario": 0, "Consumo_Teorico_30d": 0.0, "Estoque_Projetado": -0.4176, "Cobertura_Dias": 0.0, "Compra_Sugerida": 0.4176, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}, {"Tipo": "Insumo", "Insumo": "Wasabi", "Unidade": "Kg", "Estoque_Sistema": -1.887, "Estoque_Minimo": 4.02, "Custo_Unitario": 0, "Consumo_Teorico_30d": 5.345000000000001, "Estoque_Projetado": -7.232000000000001, "Cobertura_Dias": -40.5912067352666, "Compra_Sugerida": 11.252, "Valor_Compra_Sugerido": 0, "Status": "Ruptura"}];
+const DATA_CMV = [{"Produto_Venda": "12 cortes - Sashimi de Salmão ou Atum", "Produto_Precificacao": "Sashimi", "Qtd_Vendida": 4, "Receita_Total": 300.0, "Custo_Unit_Base": 18.68, "CMV_Base": 0.25, "Custo_Teorico_Total": 74.72, "CMV_Teorico": 0.24906666666666666, "Preço_Aplicado": 71.54, "Status": "OK"}, {"Produto_Venda": "6 cortes - Sashimi de Polvo ou Peixe Branco", "Produto_Precificacao": "Sashimi", "Qtd_Vendida": 2, "Receita_Total": 84.0, "Custo_Unit_Base": 18.68, "CMV_Base": 0.25, "Custo_Teorico_Total": 37.36, "CMV_Teorico": 0.44476190476190475, "Preço_Aplicado": 71.54, "Status": "OK"}, {"Produto_Venda": "6 cortes - Sashimi de Salmão ou Atum", "Produto_Precificacao": "Sashimi", "Qtd_Vendida": 6, "Receita_Total": 240.0, "Custo_Unit_Base": 18.68, "CMV_Base": 0.25, "Custo_Teorico_Total": 112.08, "CMV_Teorico": 0.46699999999999997, "Preço_Aplicado": 71.54, "Status": "OK"}, {"Produto_Venda": "ACRESCIMO", "Produto_Precificacao": 0, "Qtd_Vendida": 4, "Receita_Total": 8.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Alfredo Roca Malbec", "Produto_Precificacao": 0, "Qtd_Vendida": 3, "Receita_Total": 417.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Alfredo Roca Syrah", "Produto_Precificacao": 0, "Qtd_Vendida": 1, "Receita_Total": 139.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Aperol Spritz", "Produto_Precificacao": 0, "Qtd_Vendida": 12, "Receita_Total": 444.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Atum Selado", "Produto_Precificacao": "Atum Selado", "Qtd_Vendida": 13, "Receita_Total": 1014.0, "Custo_Unit_Base": 17.94, "CMV_Base": 0.24, "Custo_Teorico_Total": 233.22000000000003, "CMV_Teorico": 0.23000000000000004, "Preço_Aplicado": 74.0, "Status": "OK"}, {"Produto_Venda": "BADEN GOLD", "Produto_Precificacao": 0, "Qtd_Vendida": 3, "Receita_Total": 60.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "BADEN IPA", "Produto_Precificacao": 0, "Qtd_Vendida": 1, "Receita_Total": 20.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Blue Moon", "Produto_Precificacao": 0, "Qtd_Vendida": 3, "Receita_Total": 60.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Boulevardier", "Produto_Precificacao": 0, "Qtd_Vendida": 6, "Receita_Total": 222.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "CAIPIRINHA DE JAMBU", "Produto_Precificacao": 0, "Qtd_Vendida": 9, "Receita_Total": 234.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "CAIPIRINHA DE MEL E LIMAO", "Produto_Precificacao": 0, "Qtd_Vendida": 8, "Receita_Total": 208.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "CHA VERDE", "Produto_Precificacao": 0, "Qtd_Vendida": 10, "Receita_Total": 130.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "CHOPP AUTENTICA PILSEN", "Produto_Precificacao": 0, "Qtd_Vendida": 195, "Receita_Total": 3120.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "CHOPP IPA", "Produto_Precificacao": 0, "Qtd_Vendida": 97, "Receita_Total": 1746.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Caipirinha de Cachaça", "Produto_Precificacao": 0, "Qtd_Vendida": 2, "Receita_Total": 60.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Caipirinha de Cachaça Premium", "Produto_Precificacao": 0, "Qtd_Vendida": 2, "Receita_Total": 70.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Caipirinha de Saquê", "Produto_Precificacao": 0, "Qtd_Vendida": 20, "Receita_Total": 580.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Caipirinha de Vodka", "Produto_Precificacao": 0, "Qtd_Vendida": 3, "Receita_Total": 93.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Caipirinha de Vodka Premium", "Produto_Precificacao": 0, "Qtd_Vendida": 1, "Receita_Total": 36.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Campari", "Produto_Precificacao": 0, "Qtd_Vendida": 2, "Receita_Total": 34.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Carpaccio Osuzukuri", "Produto_Precificacao": "Carpaccio Osuzukuri", "Qtd_Vendida": 10, "Receita_Total": 680.0, "Custo_Unit_Base": 30.35, "CMV_Base": 0.52, "Custo_Teorico_Total": 303.5, "CMV_Teorico": 0.44632352941176473, "Preço_Aplicado": 58.0, "Status": "OK"}, {"Produto_Venda": "Carpaccio de Salmão", "Produto_Precificacao": "Carpaccio de Salmão", "Qtd_Vendida": 14, "Receita_Total": 896.0, "Custo_Unit_Base": 8.75, "CMV_Base": 0.16, "Custo_Teorico_Total": 122.5, "CMV_Teorico": 0.13671875, "Preço_Aplicado": 54.0, "Status": "OK"}, {"Produto_Venda": "Carpaccio de Salmão Trufado", "Produto_Precificacao": "Carpaccio de Salmão Trufado", "Qtd_Vendida": 55, "Receita_Total": 3740.0, "Custo_Unit_Base": 9.83, "CMV_Base": 0.15, "Custo_Teorico_Total": 540.65, "CMV_Teorico": 0.14455882352941177, "Preço_Aplicado": 67.0, "Status": "OK"}, {"Produto_Venda": "Casa Perini Brut Rosé", "Produto_Precificacao": 0, "Qtd_Vendida": 3, "Receita_Total": 297.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Casa Perini Moscatel Branco", "Produto_Precificacao": 0, "Qtd_Vendida": 9, "Receita_Total": 765.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Casa Perini Prosecco", "Produto_Precificacao": 0, "Qtd_Vendida": 22, "Receita_Total": 2178.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Ceviche Clássico", "Produto_Precificacao": "Ceviche Clássico", "Qtd_Vendida": 25, "Receita_Total": 1800.0, "Custo_Unit_Base": 18.15, "CMV_Base": 0.26, "Custo_Teorico_Total": 453.74999999999994, "CMV_Teorico": 0.2520833333333333, "Preço_Aplicado": 69.0, "Status": "OK"}, {"Produto_Venda": "Ceviche Especial", "Produto_Precificacao": "Ceviche Especial", "Qtd_Vendida": 15, "Receita_Total": 1320.0, "Custo_Unit_Base": 27.67, "CMV_Base": 0.35, "Custo_Teorico_Total": 415.05, "CMV_Teorico": 0.3144318181818182, "Preço_Aplicado": 78.0, "Status": "OK"}, {"Produto_Venda": "Chicken Katsu", "Produto_Precificacao": "Chicken Katsu", "Qtd_Vendida": 24, "Receita_Total": 1632.0, "Custo_Unit_Base": 11.11, "CMV_Base": 0.17, "Custo_Teorico_Total": 266.64, "CMV_Teorico": 0.16338235294117645, "Preço_Aplicado": 64.0, "Status": "OK"}, {"Produto_Venda": "Coca-Cola", "Produto_Precificacao": 0, "Qtd_Vendida": 120, "Receita_Total": 1080.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Coca-Cola Zero", "Produto_Precificacao": 0, "Qtd_Vendida": 194, "Receita_Total": 1746.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Corona", "Produto_Precificacao": 0, "Qtd_Vendida": 26, "Receita_Total": 390.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Corona Zero", "Produto_Precificacao": 0, "Qtd_Vendida": 12, "Receita_Total": 180.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Cosmopolitan", "Produto_Precificacao": 0, "Qtd_Vendida": 4, "Receita_Total": 132.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "DJ ROSE", "Produto_Precificacao": 0, "Qtd_Vendida": 1, "Receita_Total": 188.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "DOSE LICOR DE LARANJEIRA", "Produto_Precificacao": 0, "Qtd_Vendida": 2, "Receita_Total": 40.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Dona Flor Vinho Verde Branco", "Produto_Precificacao": 0, "Qtd_Vendida": 3, "Receita_Total": 267.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Dose Saquê Ryuujin Black", "Produto_Precificacao": 0, "Qtd_Vendida": 2, "Receita_Total": 50.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Dose Saquê Thikara Ryuujin Black", "Produto_Precificacao": 0, "Qtd_Vendida": 4, "Receita_Total": 100.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "EMBALAGEM G", "Produto_Precificacao": 0, "Qtd_Vendida": 11, "Receita_Total": 77.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "EMBALAGEM P", "Produto_Precificacao": 0, "Qtd_Vendida": 26, "Receita_Total": 78.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Ebifurai", "Produto_Precificacao": "Ebifurai", "Qtd_Vendida": 6, "Receita_Total": 594.0, "Custo_Unit_Base": 20.92, "CMV_Base": 0.21, "Custo_Teorico_Total": 125.52000000000001, "CMV_Teorico": 0.21131313131313134, "Preço_Aplicado": 99.0, "Status": "OK"}, {"Produto_Venda": "FOLHA DE ARROZ", "Produto_Precificacao": 0, "Qtd_Vendida": 5, "Receita_Total": 0.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Filé Mignon Grelhado", "Produto_Precificacao": "Filé Mignon Grelhado", "Qtd_Vendida": 1, "Receita_Total": 60.0, "Custo_Unit_Base": 14.28, "CMV_Base": 0.27, "Custo_Teorico_Total": 14.28, "CMV_Teorico": 0.238, "Preço_Aplicado": 52.0, "Status": "OK"}, {"Produto_Venda": "Fitzgerald", "Produto_Precificacao": 0, "Qtd_Vendida": 26, "Receita_Total": 988.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Gari", "Produto_Precificacao": "Gari", "Qtd_Vendida": 33, "Receita_Total": 198.0, "Custo_Unit_Base": 0.75, "CMV_Base": 0.13, "Custo_Teorico_Total": 24.75, "CMV_Teorico": 0.125, "Preço_Aplicado": 6.0, "Status": "OK"}, {"Produto_Venda": "Gin & Tônica", "Produto_Precificacao": 0, "Qtd_Vendida": 5, "Receita_Total": 185.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Gobo", "Produto_Precificacao": "Gobo", "Qtd_Vendida": 2, "Receita_Total": 32.0, "Custo_Unit_Base": 1.81, "CMV_Base": 0.11, "Custo_Teorico_Total": 3.62, "CMV_Teorico": 0.113125, "Preço_Aplicado": 16.0, "Status": "OK"}, {"Produto_Venda": "Gohan", "Produto_Precificacao": "Gohan", "Qtd_Vendida": 14, "Receita_Total": 224.0, "Custo_Unit_Base": 0.67, "CMV_Base": 0.05, "Custo_Teorico_Total": 9.38, "CMV_Teorico": 0.041875, "Preço_Aplicado": 14.0, "Status": "OK"}, {"Produto_Venda": "Guaraná Antarctica", "Produto_Precificacao": 0, "Qtd_Vendida": 38, "Receita_Total": 342.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Guaraná Antarctica Zero", "Produto_Precificacao": 0, "Qtd_Vendida": 31, "Receita_Total": 279.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Guioza", "Produto_Precificacao": "Guioza", "Qtd_Vendida": 155, "Receita_Total": 6975.0, "Custo_Unit_Base": 2.66, "CMV_Base": 0.07, "Custo_Teorico_Total": 412.3, "CMV_Teorico": 0.059111111111111114, "Preço_Aplicado": 40.0, "Status": "OK"}, {"Produto_Venda": "Gunkan Ebi Roll", "Produto_Precificacao": "Gunkan Ebi Roll", "Qtd_Vendida": 39, "Receita_Total": 2652.0, "Custo_Unit_Base": 14.15, "CMV_Base": 0.21, "Custo_Teorico_Total": 551.85, "CMV_Teorico": 0.20808823529411766, "Preço_Aplicado": 66.0, "Status": "OK"}, {"Produto_Venda": "Gunkan Pimenta", "Produto_Precificacao": "Gunkan Pimenta", "Qtd_Vendida": 4, "Receita_Total": 256.0, "Custo_Unit_Base": 15.04, "CMV_Base": 0.26, "Custo_Teorico_Total": 60.16, "CMV_Teorico": 0.235, "Preço_Aplicado": 58.0, "Status": "OK"}, {"Produto_Venda": "Gunkan Salmão Cheese", "Produto_Precificacao": "Gunkan Salmão Cheese", "Qtd_Vendida": 19, "Receita_Total": 1102.0, "Custo_Unit_Base": 10.46, "CMV_Base": 0.22, "Custo_Teorico_Total": 198.74, "CMV_Teorico": 0.1803448275862069, "Preço_Aplicado": 48.0, "Status": "OK"}, {"Produto_Venda": "Gunkan Shimeji", "Produto_Precificacao": "Gunkan Shimeji", "Qtd_Vendida": 7, "Receita_Total": 406.0, "Custo_Unit_Base": 11.07, "CMV_Base": 0.23, "Custo_Teorico_Total": 77.49000000000001, "CMV_Teorico": 0.19086206896551727, "Preço_Aplicado": 48.0, "Status": "OK"}, {"Produto_Venda": "H2O LIMAO", "Produto_Precificacao": 0, "Qtd_Vendida": 9, "Receita_Total": 90.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "H2O LIMONETO", "Produto_Precificacao": 0, "Qtd_Vendida": 23, "Receita_Total": 230.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "H2OH LIMÃO", "Produto_Precificacao": 0, "Qtd_Vendida": 8, "Receita_Total": 80.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "H2OH Limonetto", "Produto_Precificacao": 0, "Qtd_Vendida": 21, "Receita_Total": 210.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "H2OH Limão", "Produto_Precificacao": 0, "Qtd_Vendida": 8, "Receita_Total": 80.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Hakutsuru Josen Futsushu", "Produto_Precificacao": 0, "Qtd_Vendida": 7, "Receita_Total": 245.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Hakutsuru Junmai Yamadanishiki", "Produto_Precificacao": 0, "Qtd_Vendida": 1, "Receita_Total": 59.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Harumaki de Legumes", "Produto_Precificacao": "Harumaki de Legumes", "Qtd_Vendida": 43, "Receita_Total": 344.0, "Custo_Unit_Base": 0.69, "CMV_Base": 0.09, "Custo_Teorico_Total": 29.669999999999998, "CMV_Teorico": 0.08625, "Preço_Aplicado": 8.0, "Status": "OK"}, {"Produto_Venda": "Harumaki de Queijo", "Produto_Precificacao": "Harumaki de Queijo", "Qtd_Vendida": 57, "Receita_Total": 570.0, "Custo_Unit_Base": 1.23, "CMV_Base": 0.12, "Custo_Teorico_Total": 70.11, "CMV_Teorico": 0.123, "Preço_Aplicado": 10.0, "Status": "OK"}, {"Produto_Venda": "Heineken", "Produto_Precificacao": 0, "Qtd_Vendida": 39, "Receita_Total": 585.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Heineken Zero", "Produto_Precificacao": 0, "Qtd_Vendida": 12, "Receita_Total": 180.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Hossomaki Atum", "Produto_Precificacao": "Hossomaki Atum", "Qtd_Vendida": 1, "Receita_Total": 26.0, "Custo_Unit_Base": 6.9, "CMV_Base": 0.25, "Custo_Teorico_Total": 6.9, "CMV_Teorico": 0.2653846153846154, "Preço_Aplicado": 28.0, "Status": "OK"}, {"Produto_Venda": "Hossomaki Pepino", "Produto_Precificacao": "Hossomaki Pepino", "Qtd_Vendida": 8, "Receita_Total": 144.0, "Custo_Unit_Base": 1.62, "CMV_Base": 0.08, "Custo_Teorico_Total": 12.96, "CMV_Teorico": 0.09000000000000001, "Preço_Aplicado": 20.0, "Status": "OK"}, {"Produto_Venda": "Hossomaki Salmão", "Produto_Precificacao": "Hossomaki Salmão", "Qtd_Vendida": 11, "Receita_Total": 286.0, "Custo_Unit_Base": 4.12, "CMV_Base": 0.15, "Custo_Teorico_Total": 45.32, "CMV_Teorico": 0.15846153846153846, "Preço_Aplicado": 28.0, "Status": "OK"}, {"Produto_Venda": "Hot Banana", "Produto_Precificacao": "Hot Banana", "Qtd_Vendida": 36, "Receita_Total": 1260.0, "Custo_Unit_Base": 5.7, "CMV_Base": 0.16, "Custo_Teorico_Total": 205.20000000000002, "CMV_Teorico": 0.16285714285714287, "Preço_Aplicado": 35.0, "Status": "OK"}, {"Produto_Venda": "Hot Roll Especial", "Produto_Precificacao": "Hot Roll Especial", "Qtd_Vendida": 79, "Receita_Total": 3002.0, "Custo_Unit_Base": 6.65, "CMV_Base": 0.18, "Custo_Teorico_Total": 525.35, "CMV_Teorico": 0.17500000000000002, "Preço_Aplicado": 38.0, "Status": "OK"}, {"Produto_Venda": "Hot Roll Tradicional", "Produto_Precificacao": "Hot Roll Tradicional", "Qtd_Vendida": 92, "Receita_Total": 2760.0, "Custo_Unit_Base": 3.77, "CMV_Base": 0.13, "Custo_Teorico_Total": 346.84, "CMV_Teorico": 0.12566666666666665, "Preço_Aplicado": 30.0, "Status": "OK"}, {"Produto_Venda": "Hot Temaki", "Produto_Precificacao": "Hot Temaki", "Qtd_Vendida": 57, "Receita_Total": 2280.0, "Custo_Unit_Base": 3.97, "CMV_Base": 0.13, "Custo_Teorico_Total": 226.29000000000002, "CMV_Teorico": 0.09925, "Preço_Aplicado": 30.0, "Status": "OK"}, {"Produto_Venda": "ICHIGO JAMBU", "Produto_Precificacao": 0, "Qtd_Vendida": 14, "Receita_Total": 406.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Katsu Karê Rice", "Produto_Precificacao": "Katsu Karê", "Qtd_Vendida": 9, "Receita_Total": 486.0, "Custo_Unit_Base": 5.98, "CMV_Base": 0.13, "Custo_Teorico_Total": 53.82000000000001, "CMV_Teorico": 0.11074074074074075, "Preço_Aplicado": 45.0, "Status": "OK"}, {"Produto_Venda": "Lamen da Casa", "Produto_Precificacao": "Lamen da Casa", "Qtd_Vendida": 79, "Receita_Total": 5372.0, "Custo_Unit_Base": 11.17, "CMV_Base": 0.16, "Custo_Teorico_Total": 882.43, "CMV_Teorico": 0.16426470588235292, "Preço_Aplicado": 68.0, "Status": "OK"}, {"Produto_Venda": "Missoshiro", "Produto_Precificacao": "Missoshiro", "Qtd_Vendida": 55, "Receita_Total": 550.0, "Custo_Unit_Base": 1.73, "CMV_Base": 0.17, "Custo_Teorico_Total": 95.15, "CMV_Teorico": 0.17300000000000001, "Preço_Aplicado": 10.0, "Status": "OK"}, {"Produto_Venda": "Mojito", "Produto_Precificacao": 0, "Qtd_Vendida": 3, "Receita_Total": 99.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Moscow Mule", "Produto_Precificacao": 0, "Qtd_Vendida": 13, "Receita_Total": 455.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Negroni", "Produto_Precificacao": 0, "Qtd_Vendida": 6, "Receita_Total": 210.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Niguiri Atum com Foie Gras", "Produto_Precificacao": "Niguiri com Foie Gras", "Qtd_Vendida": 18, "Receita_Total": 252.0, "Custo_Unit_Base": 3.07, "CMV_Base": 0.22, "Custo_Teorico_Total": 55.26, "CMV_Teorico": 0.21928571428571428, "Preço_Aplicado": 14.0, "Status": "OK"}, {"Produto_Venda": "Niguiri Haddock", "Produto_Precificacao": "Niguiri Haddock", "Qtd_Vendida": 6, "Receita_Total": 84.0, "Custo_Unit_Base": 2.1, "CMV_Base": 0.15, "Custo_Teorico_Total": 12.600000000000001, "CMV_Teorico": 0.15000000000000002, "Preço_Aplicado": 14.0, "Status": "OK"}, {"Produto_Venda": "Niguiri Salmão Trufado", "Produto_Precificacao": "Niguiri Salmão Trufado", "Qtd_Vendida": 55, "Receita_Total": 770.0, "Custo_Unit_Base": 1.23, "CMV_Base": 0.09, "Custo_Teorico_Total": 67.65, "CMV_Teorico": 0.08785714285714287, "Preço_Aplicado": 14.0, "Status": "OK"}, {"Produto_Venda": "Niguiri Skin com Limão", "Produto_Precificacao": "Niguiri Skin com Limão", "Qtd_Vendida": 2, "Receita_Total": 16.0, "Custo_Unit_Base": 1.0, "CMV_Base": 0.13, "Custo_Teorico_Total": 2.0, "CMV_Teorico": 0.125, "Preço_Aplicado": 8.0, "Status": "OK"}, {"Produto_Venda": "Niguiri Unagui (Enguia)", "Produto_Precificacao": "Niguiri Unagui", "Qtd_Vendida": 23, "Receita_Total": 575.0, "Custo_Unit_Base": 8.83, "CMV_Base": 0.35, "Custo_Teorico_Total": 203.09, "CMV_Teorico": 0.3532, "Preço_Aplicado": 25.0, "Status": "OK"}, {"Produto_Venda": "Niguiri Vieira", "Produto_Precificacao": "Niguiri Vieira", "Qtd_Vendida": 24, "Receita_Total": 480.0, "Custo_Unit_Base": 4.22, "CMV_Base": 0.21, "Custo_Teorico_Total": 101.28, "CMV_Teorico": 0.211, "Preço_Aplicado": 20.0, "Status": "OK"}, {"Produto_Venda": "Niguiri de Atum", "Produto_Precificacao": "Niguiri de Atum", "Qtd_Vendida": 9, "Receita_Total": 81.0, "Custo_Unit_Base": 1.86, "CMV_Base": 0.19, "Custo_Teorico_Total": 16.740000000000002, "CMV_Teorico": 0.2066666666666667, "Preço_Aplicado": 10.0, "Status": "OK"}, {"Produto_Venda": "Niguiri de Camarão", "Produto_Precificacao": "Niguiri Camarão", "Qtd_Vendida": 5, "Receita_Total": 70.0, "Custo_Unit_Base": 4.64, "CMV_Base": 0.33, "Custo_Teorico_Total": 23.2, "CMV_Teorico": 0.3314285714285714, "Preço_Aplicado": 14.0, "Status": "OK"}, {"Produto_Venda": "Niguiri de Polvo", "Produto_Precificacao": "Niguiri de Polvo", "Qtd_Vendida": 8, "Receita_Total": 80.0, "Custo_Unit_Base": 1.45, "CMV_Base": 0.14, "Custo_Teorico_Total": 11.6, "CMV_Teorico": 0.145, "Preço_Aplicado": 10.0, "Status": "OK"}, {"Produto_Venda": "Niguiri de Robalo", "Produto_Precificacao": "Niguiri de Robalo", "Qtd_Vendida": 6, "Receita_Total": 72.0, "Custo_Unit_Base": 3.54, "CMV_Base": 0.29, "Custo_Teorico_Total": 21.240000000000002, "CMV_Teorico": 0.29500000000000004, "Preço_Aplicado": 12.0, "Status": "OK"}, {"Produto_Venda": "Niguiri de Salmão", "Produto_Precificacao": "Niguiri de Salmão", "Qtd_Vendida": 74, "Receita_Total": 592.0, "Custo_Unit_Base": 1.02, "CMV_Base": 0.13, "Custo_Teorico_Total": 75.48, "CMV_Teorico": 0.1275, "Preço_Aplicado": 8.0, "Status": "OK"}, {"Produto_Venda": "Old Fashioned", "Produto_Precificacao": 0, "Qtd_Vendida": 2, "Receita_Total": 78.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "PAINAPPURU WA SUPPAI", "Produto_Precificacao": 0, "Qtd_Vendida": 17, "Receita_Total": 510.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Paso de Drake Gran Reserva Cabernet Sauvignon", "Produto_Precificacao": 0, "Qtd_Vendida": 1, "Receita_Total": 149.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Paso de Drake Reserva Chardonnay", "Produto_Precificacao": 0, "Qtd_Vendida": 2, "Receita_Total": 178.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Paso de Drake Reserva Rosé", "Produto_Precificacao": 0, "Qtd_Vendida": 1, "Receita_Total": 89.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Paso de Drake Reserva Sauvignon Blanc", "Produto_Precificacao": 0, "Qtd_Vendida": 8, "Receita_Total": 712.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Petit Gateau", "Produto_Precificacao": "Petit Gateau", "Qtd_Vendida": 18, "Receita_Total": 504.0, "Custo_Unit_Base": 11.4, "CMV_Base": 0.41, "Custo_Teorico_Total": 205.20000000000002, "CMV_Teorico": 0.4071428571428572, "Preço_Aplicado": 28.0, "Status": "OK"}, {"Produto_Venda": "Pink Lemonade", "Produto_Precificacao": 0, "Qtd_Vendida": 16, "Receita_Total": 384.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Posta de Anchova Grelhada", "Produto_Precificacao": "Posta Anchova Grelhada", "Qtd_Vendida": 1, "Receita_Total": 50.0, "Custo_Unit_Base": 13.58, "CMV_Base": 0.27, "Custo_Teorico_Total": 13.58, "CMV_Teorico": 0.2716, "Preço_Aplicado": 50.0, "Status": "OK"}, {"Produto_Venda": "Posta de Salmão Grelhada", "Produto_Precificacao": "Posta Salmão Grelhada", "Qtd_Vendida": 5, "Receita_Total": 250.0, "Custo_Unit_Base": 12.28, "CMV_Base": 0.25, "Custo_Teorico_Total": 61.4, "CMV_Teorico": 0.24559999999999998, "Preço_Aplicado": 49.0, "Status": "OK"}, {"Produto_Venda": "Q.S.S. Rare Rosé", "Produto_Precificacao": 0, "Qtd_Vendida": 5, "Receita_Total": 470.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "ROLHA", "Produto_Precificacao": 0, "Qtd_Vendida": 2, "Receita_Total": 60.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "SUCO DE MARACUJA", "Produto_Precificacao": 0, "Qtd_Vendida": 4, "Receita_Total": 60.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Sashimi de Polvo ou Peixe Branco (18 cortes)", "Produto_Precificacao": "Sashimi", "Qtd_Vendida": 1, "Receita_Total": 108.0, "Custo_Unit_Base": 18.68, "CMV_Base": 0.25, "Custo_Teorico_Total": 18.68, "CMV_Teorico": 0.17296296296296296, "Preço_Aplicado": 71.54, "Status": "OK"}, {"Produto_Venda": "Sashimi de Polvo ou Peixe Branco (6 cortes)", "Produto_Precificacao": "Sashimi", "Qtd_Vendida": 6, "Receita_Total": 252.0, "Custo_Unit_Base": 18.68, "CMV_Base": 0.25, "Custo_Teorico_Total": 112.08, "CMV_Teorico": 0.44476190476190475, "Preço_Aplicado": 71.54, "Status": "OK"}, {"Produto_Venda": "Sashimi de Salmão ou Atum (12 cortes)", "Produto_Precificacao": "Sashimi", "Qtd_Vendida": 3, "Receita_Total": 225.0, "Custo_Unit_Base": 18.68, "CMV_Base": 0.25, "Custo_Teorico_Total": 56.04, "CMV_Teorico": 0.24906666666666666, "Preço_Aplicado": 71.54, "Status": "OK"}, {"Produto_Venda": "Sashimi de Salmão ou Atum (18 cortes)", "Produto_Precificacao": "Sashimi", "Qtd_Vendida": 1, "Receita_Total": 105.0, "Custo_Unit_Base": 18.68, "CMV_Base": 0.25, "Custo_Teorico_Total": 18.68, "CMV_Teorico": 0.1779047619047619, "Preço_Aplicado": 71.54, "Status": "OK"}, {"Produto_Venda": "Sashimi de Salmão ou Atum (6 cortes)", "Produto_Precificacao": "Sashimi", "Qtd_Vendida": 17, "Receita_Total": 680.0, "Custo_Unit_Base": 18.68, "CMV_Base": 0.25, "Custo_Teorico_Total": 317.56, "CMV_Teorico": 0.467, "Preço_Aplicado": 71.54, "Status": "OK"}, {"Produto_Venda": "Schweppes Citrus", "Produto_Precificacao": 0, "Qtd_Vendida": 28, "Receita_Total": 252.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Schweppes Citrus Zero", "Produto_Precificacao": 0, "Qtd_Vendida": 10, "Receita_Total": 90.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Schweppes Tônica", "Produto_Precificacao": 0, "Qtd_Vendida": 10, "Receita_Total": 90.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Schweppes Tônica Zero", "Produto_Precificacao": 0, "Qtd_Vendida": 15, "Receita_Total": 135.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Setto 1", "Produto_Precificacao": "Setto 1 (20 peças)", "Qtd_Vendida": 96, "Receita_Total": 8064.0, "Custo_Unit_Base": 25.03, "CMV_Base": 0.3, "Custo_Teorico_Total": 2402.88, "CMV_Teorico": 0.2979761904761905, "Preço_Aplicado": 84.0, "Status": "OK"}, {"Produto_Venda": "Setto 2", "Produto_Precificacao": "Setto 2 (40 peças)", "Qtd_Vendida": 81, "Receita_Total": 11988.0, "Custo_Unit_Base": 48.34, "CMV_Base": 0.29, "Custo_Teorico_Total": 3915.5400000000004, "CMV_Teorico": 0.32662162162162167, "Preço_Aplicado": 166.0, "Status": "OK"}, {"Produto_Venda": "Setto Kayo", "Produto_Precificacao": "Setto Kayo (39 peças)", "Qtd_Vendida": 75, "Receita_Total": 16875.0, "Custo_Unit_Base": 74.91, "CMV_Base": 0.36, "Custo_Teorico_Total": 5618.25, "CMV_Teorico": 0.33293333333333336, "Preço_Aplicado": 210.0, "Status": "OK"}, {"Produto_Venda": "Setto do Chef", "Produto_Precificacao": "Setto do Chef (26 peças)", "Qtd_Vendida": 57, "Receita_Total": 8436.0, "Custo_Unit_Base": 55.22, "CMV_Base": 0.37, "Custo_Teorico_Total": 3147.54, "CMV_Teorico": 0.3731081081081081, "Preço_Aplicado": 150.0, "Status": "OK"}, {"Produto_Venda": "Shimeji na Manteiga", "Produto_Precificacao": "Shimeji na Manteiga", "Qtd_Vendida": 65, "Receita_Total": 2600.0, "Custo_Unit_Base": 11.06, "CMV_Base": 0.29, "Custo_Teorico_Total": 718.9, "CMV_Teorico": 0.27649999999999997, "Preço_Aplicado": 38.0, "Status": "OK"}, {"Produto_Venda": "Soda Italiana", "Produto_Precificacao": 0, "Qtd_Vendida": 36, "Receita_Total": 720.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Spicy Edamame", "Produto_Precificacao": "Spicy Edamame", "Qtd_Vendida": 13, "Receita_Total": 390.0, "Custo_Unit_Base": 6.45, "CMV_Base": 0.23, "Custo_Teorico_Total": 83.85000000000001, "CMV_Teorico": 0.21500000000000002, "Preço_Aplicado": 28.0, "Status": "OK"}, {"Produto_Venda": "Stella Artois", "Produto_Precificacao": 0, "Qtd_Vendida": 21, "Receita_Total": 294.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Stella Artois Sem Glúten", "Produto_Precificacao": 0, "Qtd_Vendida": 7, "Receita_Total": 98.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Suco de Abacaxi com Hortelã", "Produto_Precificacao": 0, "Qtd_Vendida": 25, "Receita_Total": 400.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Suco de Laranja", "Produto_Precificacao": 0, "Qtd_Vendida": 91, "Receita_Total": 1365.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Suco de Limão", "Produto_Precificacao": 0, "Qtd_Vendida": 14, "Receita_Total": 196.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Suco de Morango", "Produto_Precificacao": 0, "Qtd_Vendida": 26, "Receita_Total": 416.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Suco de Morango com Laranja", "Produto_Precificacao": 0, "Qtd_Vendida": 51, "Receita_Total": 867.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Sunomono", "Produto_Precificacao": "Sunomono", "Qtd_Vendida": 44, "Receita_Total": 616.0, "Custo_Unit_Base": 2.89, "CMV_Base": 0.24, "Custo_Teorico_Total": 127.16000000000001, "CMV_Teorico": 0.20642857142857143, "Preço_Aplicado": 12.0, "Status": "OK"}, {"Produto_Venda": "Sushi Especial", "Produto_Precificacao": "Setto Sushi Especial (42 peças)", "Qtd_Vendida": 55, "Receita_Total": 9240.0, "Custo_Unit_Base": 34.31, "CMV_Base": 0.19, "Custo_Teorico_Total": 1887.0500000000002, "CMV_Teorico": 0.2042261904761905, "Preço_Aplicado": 184.0, "Status": "OK"}, {"Produto_Venda": "TARÊ", "Produto_Precificacao": 0, "Qtd_Vendida": 2, "Receita_Total": 16.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "TEMAKI DE POLVO", "Produto_Precificacao": 0, "Qtd_Vendida": 8, "Receita_Total": 272.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Tartare de Atum", "Produto_Precificacao": "Tartare de Atum", "Qtd_Vendida": 12, "Receita_Total": 936.0, "Custo_Unit_Base": 21.75, "CMV_Base": 0.3, "Custo_Teorico_Total": 261.0, "CMV_Teorico": 0.27884615384615385, "Preço_Aplicado": 72.0, "Status": "OK"}, {"Produto_Venda": "Tartare de Salmão", "Produto_Precificacao": "Tartare de Salmão", "Qtd_Vendida": 16, "Receita_Total": 1248.0, "Custo_Unit_Base": 14.68, "CMV_Base": 0.22, "Custo_Teorico_Total": 234.88, "CMV_Teorico": 0.1882051282051282, "Preço_Aplicado": 68.0, "Status": "OK"}, {"Produto_Venda": "Taxa de Serviço", "Produto_Precificacao": 0, "Qtd_Vendida": 622, "Receita_Total": 16351.6, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Teishoku da Casa", "Produto_Precificacao": "Teishoku da Casa Salmão", "Qtd_Vendida": 21, "Receita_Total": 4158.0, "Custo_Unit_Base": 52.71, "CMV_Base": 0.26, "Custo_Teorico_Total": 1106.91, "CMV_Teorico": 0.26621212121212123, "Preço_Aplicado": 205.0, "Status": "OK"}, {"Produto_Venda": "Temaki Atum", "Produto_Precificacao": "Temaki Atum", "Qtd_Vendida": 9, "Receita_Total": 288.0, "Custo_Unit_Base": 6.36, "CMV_Base": 0.18, "Custo_Teorico_Total": 57.24, "CMV_Teorico": 0.19875, "Preço_Aplicado": 35.0, "Status": "OK"}, {"Produto_Venda": "Temaki Ebiten", "Produto_Precificacao": "Temaki Ebiten", "Qtd_Vendida": 10, "Receita_Total": 340.0, "Custo_Unit_Base": 8.4, "CMV_Base": 0.23, "Custo_Teorico_Total": 84.0, "CMV_Teorico": 0.24705882352941178, "Preço_Aplicado": 36.0, "Status": "OK"}, {"Produto_Venda": "Temaki Salmão Cheese", "Produto_Precificacao": "Temaki Salmão Cheese", "Qtd_Vendida": 154, "Receita_Total": 4620.0, "Custo_Unit_Base": 3.72, "CMV_Base": 0.12, "Custo_Teorico_Total": 572.88, "CMV_Teorico": 0.124, "Preço_Aplicado": 30.0, "Status": "OK"}, {"Produto_Venda": "Temaki Salmão Grelhado", "Produto_Precificacao": "Temaki Salmão Grelhado", "Qtd_Vendida": 49, "Receita_Total": 1470.0, "Custo_Unit_Base": 4.65, "CMV_Base": 0.15, "Custo_Teorico_Total": 227.85000000000002, "CMV_Teorico": 0.15500000000000003, "Preço_Aplicado": 30.0, "Status": "OK"}, {"Produto_Venda": "Temaki Salmão Puro", "Produto_Precificacao": "Temaki Salmão Puro", "Qtd_Vendida": 24, "Receita_Total": 720.0, "Custo_Unit_Base": 3.75, "CMV_Base": 0.12, "Custo_Teorico_Total": 90.0, "CMV_Teorico": 0.125, "Preço_Aplicado": 30.0, "Status": "OK"}, {"Produto_Venda": "Temaki Shimeji", "Produto_Precificacao": "Temaki Shimeji", "Qtd_Vendida": 5, "Receita_Total": 150.0, "Custo_Unit_Base": 4.67, "CMV_Base": 0.16, "Custo_Teorico_Total": 23.35, "CMV_Teorico": 0.15566666666666668, "Preço_Aplicado": 30.0, "Status": "OK"}, {"Produto_Venda": "Temaki Skin", "Produto_Precificacao": "Temaki Skin", "Qtd_Vendida": 6, "Receita_Total": 168.0, "Custo_Unit_Base": 3.0, "CMV_Base": 0.11, "Custo_Teorico_Total": 18.0, "CMV_Teorico": 0.10714285714285714, "Preço_Aplicado": 28.0, "Status": "OK"}, {"Produto_Venda": "Tempurá Misto", "Produto_Precificacao": "Tempurá Misto", "Qtd_Vendida": 25, "Receita_Total": 2200.0, "Custo_Unit_Base": 16.43, "CMV_Base": 0.2, "Custo_Teorico_Total": 410.75, "CMV_Teorico": 0.18670454545454546, "Preço_Aplicado": 82.0, "Status": "OK"}, {"Produto_Venda": "Tempurá Udon", "Produto_Precificacao": "Tempurá Udon", "Qtd_Vendida": 8, "Receita_Total": 624.0, "Custo_Unit_Base": 27.71, "CMV_Base": 0.36, "Custo_Teorico_Total": 221.68, "CMV_Teorico": 0.35525641025641025, "Preço_Aplicado": 76.0, "Status": "OK"}, {"Produto_Venda": "Tempurá de Camarão", "Produto_Precificacao": "Tempurá de Camarão", "Qtd_Vendida": 12, "Receita_Total": 1188.0, "Custo_Unit_Base": 26.86, "CMV_Base": 0.27, "Custo_Teorico_Total": 322.32, "CMV_Teorico": 0.2713131313131313, "Preço_Aplicado": 99.0, "Status": "OK"}, {"Produto_Venda": "Tempurá de Legumes", "Produto_Precificacao": "Tempurá de Legumes", "Qtd_Vendida": 31, "Receita_Total": 2108.0, "Custo_Unit_Base": 2.65, "CMV_Base": 0.05, "Custo_Teorico_Total": 82.14999999999999, "CMV_Teorico": 0.03897058823529411, "Preço_Aplicado": 56.0, "Status": "OK"}, {"Produto_Venda": "Tempurá de Sorvete", "Produto_Precificacao": "Tempurá de Sorvete", "Qtd_Vendida": 33, "Receita_Total": 792.0, "Custo_Unit_Base": 3.3, "CMV_Base": 0.14, "Custo_Teorico_Total": 108.89999999999999, "CMV_Teorico": 0.13749999999999998, "Preço_Aplicado": 24.0, "Status": "OK"}, {"Produto_Venda": "Tepan Anchova", "Produto_Precificacao": "Tepan Anchova", "Qtd_Vendida": 15, "Receita_Total": 1200.0, "Custo_Unit_Base": 18.48, "CMV_Base": 0.25, "Custo_Teorico_Total": 277.2, "CMV_Teorico": 0.23099999999999998, "Preço_Aplicado": 75.0, "Status": "OK"}, {"Produto_Venda": "Tepan Camarão", "Produto_Precificacao": "Tepan Camarão", "Qtd_Vendida": 4, "Receita_Total": 392.0, "Custo_Unit_Base": 27.62, "CMV_Base": 0.29, "Custo_Teorico_Total": 110.48, "CMV_Teorico": 0.28183673469387754, "Preço_Aplicado": 95.0, "Status": "OK"}, {"Produto_Venda": "Tepan Filé Mignon", "Produto_Precificacao": "Tepan Filé Mignon", "Qtd_Vendida": 11, "Receita_Total": 990.0, "Custo_Unit_Base": 21.94, "CMV_Base": 0.24, "Custo_Teorico_Total": 241.34, "CMV_Teorico": 0.2437777777777778, "Preço_Aplicado": 90.0, "Status": "OK"}, {"Produto_Venda": "Tepan Frango", "Produto_Precificacao": "Tepan Frango", "Qtd_Vendida": 9, "Receita_Total": 612.0, "Custo_Unit_Base": 10.22, "CMV_Base": 0.16, "Custo_Teorico_Total": 91.98, "CMV_Teorico": 0.15029411764705883, "Preço_Aplicado": 65.0, "Status": "OK"}, {"Produto_Venda": "Tepan Salmão", "Produto_Precificacao": "Tepan Salmão", "Qtd_Vendida": 30, "Receita_Total": 2400.0, "Custo_Unit_Base": 17.14, "CMV_Base": 0.24, "Custo_Teorico_Total": 514.2, "CMV_Teorico": 0.21425000000000002, "Preço_Aplicado": 70.0, "Status": "OK"}, {"Produto_Venda": "Thikara Ryuujin Black", "Produto_Precificacao": 0, "Qtd_Vendida": 3, "Receita_Total": 75.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Tofu Artesanal", "Produto_Precificacao": "Tofu Artesanal", "Qtd_Vendida": 2, "Receita_Total": 60.0, "Custo_Unit_Base": 10.98, "CMV_Base": 0.39, "Custo_Teorico_Total": 21.96, "CMV_Teorico": 0.366, "Preço_Aplicado": 28.0, "Status": "OK"}, {"Produto_Venda": "Tonkatsu", "Produto_Precificacao": "Tonkatsu", "Qtd_Vendida": 15, "Receita_Total": 1020.0, "Custo_Unit_Base": 11.15, "CMV_Base": 0.17, "Custo_Teorico_Total": 167.25, "CMV_Teorico": 0.16397058823529412, "Preço_Aplicado": 64.0, "Status": "OK"}, {"Produto_Venda": "Trilogia de Pescados", "Produto_Precificacao": "Trilogia de Pescados", "Qtd_Vendida": 1, "Receita_Total": 115.0, "Custo_Unit_Base": 29.51, "CMV_Base": 0.27, "Custo_Teorico_Total": 29.51, "CMV_Teorico": 0.2566086956521739, "Preço_Aplicado": 110.0, "Status": "OK"}, {"Produto_Venda": "Trilogia de Pescados (18 cortes)", "Produto_Precificacao": "Trilogia de Pescados", "Qtd_Vendida": 2, "Receita_Total": 230.0, "Custo_Unit_Base": 29.51, "CMV_Base": 0.27, "Custo_Teorico_Total": 59.02, "CMV_Teorico": 0.2566086956521739, "Preço_Aplicado": 110.0, "Status": "OK"}, {"Produto_Venda": "Trio dos Mares", "Produto_Precificacao": 0, "Qtd_Vendida": 17, "Receita_Total": 510.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Tsukemono", "Produto_Precificacao": "Tsukemono", "Qtd_Vendida": 5, "Receita_Total": 180.0, "Custo_Unit_Base": 8.17, "CMV_Base": 0.23, "Custo_Teorico_Total": 40.85, "CMV_Teorico": 0.22694444444444445, "Preço_Aplicado": 36.0, "Status": "OK"}, {"Produto_Venda": "Uramaki Atum", "Produto_Precificacao": "Uramaki Atum", "Qtd_Vendida": 2, "Receita_Total": 84.0, "Custo_Unit_Base": 9.31, "CMV_Base": 0.22, "Custo_Teorico_Total": 18.62, "CMV_Teorico": 0.22166666666666668, "Preço_Aplicado": 42.0, "Status": "OK"}, {"Produto_Venda": "Uramaki Ebiten", "Produto_Precificacao": "Uramaki Ebiten", "Qtd_Vendida": 1, "Receita_Total": 45.0, "Custo_Unit_Base": 9.38, "CMV_Base": 0.21, "Custo_Teorico_Total": 9.38, "CMV_Teorico": 0.20844444444444446, "Preço_Aplicado": 45.0, "Status": "OK"}, {"Produto_Venda": "Uramaki Ebiten Avocado", "Produto_Precificacao": "Uramaki Ebiten Avocado", "Qtd_Vendida": 1, "Receita_Total": 68.0, "Custo_Unit_Base": 7.25, "CMV_Base": 0.15, "Custo_Teorico_Total": 7.25, "CMV_Teorico": 0.10661764705882353, "Preço_Aplicado": 50.0, "Status": "OK"}, {"Produto_Venda": "Uramaki Salmão", "Produto_Precificacao": "Uramaki Salmão", "Qtd_Vendida": 5, "Receita_Total": 190.0, "Custo_Unit_Base": 5.77, "CMV_Base": 0.17, "Custo_Teorico_Total": 28.849999999999998, "CMV_Teorico": 0.1518421052631579, "Preço_Aplicado": 34.0, "Status": "OK"}, {"Produto_Venda": "Uramaki Salmão Cheese", "Produto_Precificacao": "Uramaki Salmão Cheese", "Qtd_Vendida": 24, "Receita_Total": 912.0, "Custo_Unit_Base": 6.22, "CMV_Base": 0.17, "Custo_Teorico_Total": 149.28, "CMV_Teorico": 0.1636842105263158, "Preço_Aplicado": 36.0, "Status": "OK"}, {"Produto_Venda": "Uramaki Skin", "Produto_Precificacao": "Uramaki Skin", "Qtd_Vendida": 1, "Receita_Total": 34.0, "Custo_Unit_Base": 4.4, "CMV_Base": 0.15, "Custo_Teorico_Total": 4.4, "CMV_Teorico": 0.12941176470588237, "Preço_Aplicado": 30.0, "Status": "OK"}, {"Produto_Venda": "Uramaki Tuna Avocado", "Produto_Precificacao": "Uramaki Tuna Avocado", "Qtd_Vendida": 5, "Receita_Total": 340.0, "Custo_Unit_Base": 6.88, "CMV_Base": 0.14, "Custo_Teorico_Total": 34.4, "CMV_Teorico": 0.10117647058823528, "Preço_Aplicado": 48.0, "Status": "OK"}, {"Produto_Venda": "Virgin Mule", "Produto_Precificacao": 0, "Qtd_Vendida": 11, "Receita_Total": 286.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "WASABI SOUR", "Produto_Precificacao": 0, "Qtd_Vendida": 1, "Receita_Total": 35.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "WASSABI SAWER", "Produto_Precificacao": 0, "Qtd_Vendida": 3, "Receita_Total": 105.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "WASSABI SOUR", "Produto_Precificacao": 0, "Qtd_Vendida": 2, "Receita_Total": 70.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Whisky Sour", "Produto_Precificacao": 0, "Qtd_Vendida": 2, "Receita_Total": 80.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Yakisoba Camarão", "Produto_Precificacao": "Yakisoba Camarão", "Qtd_Vendida": 10, "Receita_Total": 880.0, "Custo_Unit_Base": 28.53, "CMV_Base": 0.33, "Custo_Teorico_Total": 285.3, "CMV_Teorico": 0.32420454545454547, "Preço_Aplicado": 86.0, "Status": "OK"}, {"Produto_Venda": "Yakisoba Carne", "Produto_Precificacao": "Yakisoba Carne", "Qtd_Vendida": 22, "Receita_Total": 1716.0, "Custo_Unit_Base": 18.63, "CMV_Base": 0.24, "Custo_Teorico_Total": 409.85999999999996, "CMV_Teorico": 0.23884615384615382, "Preço_Aplicado": 78.0, "Status": "OK"}, {"Produto_Venda": "Yakisoba Frango", "Produto_Precificacao": "Yakisoba Frango", "Qtd_Vendida": 10, "Receita_Total": 700.0, "Custo_Unit_Base": 11.28, "CMV_Base": 0.15, "Custo_Teorico_Total": 112.8, "CMV_Teorico": 0.16114285714285714, "Preço_Aplicado": 76.0, "Status": "OK"}, {"Produto_Venda": "Yakisoba Misto", "Produto_Precificacao": 0, "Qtd_Vendida": 38, "Receita_Total": 2850.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Água Crystal com Gás", "Produto_Precificacao": 0, "Qtd_Vendida": 181, "Receita_Total": 1629.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Água Crystal sem Gás", "Produto_Precificacao": 0, "Qtd_Vendida": 125, "Receita_Total": 1000.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}, {"Produto_Venda": "Água San Pellegrino com Gás", "Produto_Precificacao": 0, "Qtd_Vendida": 1, "Receita_Total": 19.0, "Custo_Unit_Base": 0.0, "CMV_Base": 0.0, "Custo_Teorico_Total": 0.0, "CMV_Teorico": 0.0, "Preço_Aplicado": 0.0, "Status": "Sem custo base"}];
+const DATA_CONSUMO = [{"Ingrediente": "Acelga", "Consumo_Teorico_30d": 9.4608, "Unidade": "Kg", "Estoque_Sistema": -4.928, "Estoque_Projetado": -14.3888}, {"Ingrediente": "Alga nori", "Consumo_Teorico_30d": 242.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -242.0}, {"Ingrediente": "Alho", "Consumo_Teorico_30d": 0.10912668073560444, "Unidade": "Kg", "Estoque_Sistema": -0.327, "Estoque_Projetado": -0.43612668073560446}, {"Ingrediente": "Amido de milho", "Consumo_Teorico_30d": 0.9299999999999999, "Unidade": "Kg", "Estoque_Sistema": -0.583, "Estoque_Projetado": -1.513}, {"Ingrediente": "Anchova", "Consumo_Teorico_30d": 3.2, "Unidade": "Kg", "Estoque_Sistema": -0.2, "Estoque_Projetado": -3.4000000000000004}, {"Ingrediente": "Arroz", "Consumo_Teorico_30d": 15.553498199279717, "Unidade": "Kg", "Estoque_Sistema": -66.68, "Estoque_Projetado": -82.23349819927972}, {"Ingrediente": "Atum", "Consumo_Teorico_30d": 13.93, "Unidade": "Kg", "Estoque_Sistema": -10.45, "Estoque_Projetado": -24.38}, {"Ingrediente": "Açúcar", "Consumo_Teorico_30d": 4.444463893584191, "Unidade": "Kg", "Estoque_Sistema": -2.9154, "Estoque_Projetado": -7.359863893584191}, {"Ingrediente": "Banana", "Consumo_Teorico_30d": 4.68, "Unidade": "Kg", "Estoque_Sistema": -1.95, "Estoque_Projetado": -6.63}, {"Ingrediente": "Base missoshiro", "Consumo_Teorico_30d": 24.900000000000002, "Unidade": "L", "Estoque_Sistema": 0.0, "Estoque_Projetado": -24.900000000000002}, {"Ingrediente": "Batata", "Consumo_Teorico_30d": 0.9, "Unidade": "Kg", "Estoque_Sistema": -0.7, "Estoque_Projetado": -1.6}, {"Ingrediente": "Batata doce", "Consumo_Teorico_30d": 3.8979999999999997, "Unidade": "Kg", "Estoque_Sistema": -1.45, "Estoque_Projetado": -5.348}, {"Ingrediente": "Berinjela", "Consumo_Teorico_30d": 2.308, "Unidade": "Kg", "Estoque_Sistema": -0.852, "Estoque_Projetado": -3.1599999999999997}, {"Ingrediente": "Bolo de laranja pronto", "Consumo_Teorico_30d": 1.32, "Unidade": "Kg", "Estoque_Sistema": -0.36, "Estoque_Projetado": -1.6800000000000002}, {"Ingrediente": "Brócolis", "Consumo_Teorico_30d": 7.289000000000001, "Unidade": "Kg", "Estoque_Sistema": -4.071, "Estoque_Projetado": -11.36}, {"Ingrediente": "Calda sorvete", "Consumo_Teorico_30d": 1.38, "Unidade": "Kg", "Estoque_Sistema": -0.48, "Estoque_Projetado": -1.8599999999999999}, {"Ingrediente": "Caldo base", "Consumo_Teorico_30d": 27.35, "Unidade": "L", "Estoque_Sistema": 0.0, "Estoque_Projetado": -27.35}, {"Ingrediente": "Camarão cozido", "Consumo_Teorico_30d": 0.44999999999999996, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -0.44999999999999996}, {"Ingrediente": "Camarão empanado", "Consumo_Teorico_30d": 0.6599999999999999, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -0.6599999999999999}, {"Ingrediente": "Camarão limpo", "Consumo_Teorico_30d": 6.1160000000000005, "Unidade": "Kg", "Estoque_Sistema": -3.832, "Estoque_Projetado": -9.948}, {"Ingrediente": "Cebola", "Consumo_Teorico_30d": 0.8781290322580645, "Unidade": "Kg", "Estoque_Sistema": -0.904, "Estoque_Projetado": -1.7821290322580645}, {"Ingrediente": "Cebola roxa", "Consumo_Teorico_30d": 0.6, "Unidade": "Kg", "Estoque_Sistema": -0.27, "Estoque_Projetado": -0.87}, {"Ingrediente": "Cebolinha", "Consumo_Teorico_30d": 1.079552251486831, "Unidade": "Kg", "Estoque_Sistema": -0.408, "Estoque_Projetado": -1.487552251486831}, {"Ingrediente": "Cebolinha ou brotos", "Consumo_Teorico_30d": 0.01, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -0.01}, {"Ingrediente": "Cenoura", "Consumo_Teorico_30d": 8.677287401574802, "Unidade": "Kg", "Estoque_Sistema": -5.1264, "Estoque_Projetado": -13.803687401574802}, {"Ingrediente": "Cream cheese", "Consumo_Teorico_30d": 0.65, "Unidade": "Kg", "Estoque_Sistema": -9.018, "Estoque_Projetado": -9.668000000000001}, {"Ingrediente": "Curry indiano", "Consumo_Teorico_30d": 0.036000000000000004, "Unidade": "Kg", "Estoque_Sistema": -0.028, "Estoque_Projetado": -0.064}, {"Ingrediente": "Edamame", "Consumo_Teorico_30d": 1.95, "Unidade": "Kg", "Estoque_Sistema": -0.15, "Estoque_Projetado": -2.1}, {"Ingrediente": "Empanamento panko", "Consumo_Teorico_30d": 6.12, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -6.12}, {"Ingrediente": "Fatia carpaccio robalo", "Consumo_Teorico_30d": 160.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -160.0}, {"Ingrediente": "Fatia carpaccio salmão", "Consumo_Teorico_30d": 3136.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -3136.0}, {"Ingrediente": "Fatia sashimi", "Consumo_Teorico_30d": 2844.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -2844.0}, {"Ingrediente": "Fatia sashimi atum", "Consumo_Teorico_30d": 126.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -126.0}, {"Ingrediente": "Fatia sashimi robalo", "Consumo_Teorico_30d": 480.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -480.0}, {"Ingrediente": "Fatia sashimi salmão", "Consumo_Teorico_30d": 126.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -126.0}, {"Ingrediente": "Filé mignon", "Consumo_Teorico_30d": 7.039999999999999, "Unidade": "Kg", "Estoque_Sistema": -4.555, "Estoque_Projetado": -11.594999999999999}, {"Ingrediente": "Flor comestível", "Consumo_Teorico_30d": 201.0, "Unidade": "Und", "Estoque_Sistema": -34.0, "Estoque_Projetado": -235.0}, {"Ingrediente": "Flor de sal", "Consumo_Teorico_30d": 0.305, "Unidade": "Kg", "Estoque_Sistema": -0.061, "Estoque_Projetado": -0.366}, {"Ingrediente": "Folha de arroz", "Consumo_Teorico_30d": 28.0, "Unidade": "Und", "Estoque_Sistema": -10.0, "Estoque_Projetado": -38.0}, {"Ingrediente": "Gengibre", "Consumo_Teorico_30d": 0.18504616406644822, "Unidade": "Kg", "Estoque_Sistema": -0.289, "Estoque_Projetado": -0.4740461640664482}, {"Ingrediente": "Gengibre em conserva", "Consumo_Teorico_30d": 7.109999999999999, "Unidade": "Kg", "Estoque_Sistema": -3.875, "Estoque_Projetado": -10.985}, {"Ingrediente": "Gergelim misto", "Consumo_Teorico_30d": 1.3659999999999999, "Unidade": "Kg", "Estoque_Sistema": -0.257, "Estoque_Projetado": -1.6229999999999998}, {"Ingrediente": "Glutamato monossódico", "Consumo_Teorico_30d": 0.9612521672032431, "Unidade": "Kg", "Estoque_Sistema": -0.4884, "Estoque_Projetado": -1.4496521672032432}, {"Ingrediente": "Gunkan ebi roll und", "Consumo_Teorico_30d": 414.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -414.0}, {"Ingrediente": "Gunkan salmão cheese und", "Consumo_Teorico_30d": 414.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -414.0}, {"Ingrediente": "Gunkan shimeji und", "Consumo_Teorico_30d": 414.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -414.0}, {"Ingrediente": "Hondashi", "Consumo_Teorico_30d": 0.07441030999651688, "Unidade": "Kg", "Estoque_Sistema": -0.134, "Estoque_Projetado": -0.20841030999651688}, {"Ingrediente": "Hossomaki salmão und", "Consumo_Teorico_30d": 1472.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -1472.0}, {"Ingrediente": "Hot roll especial und", "Consumo_Teorico_30d": 1046.0, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -1046.0}, {"Ingrediente": "Hot roll und", "Consumo_Teorico_30d": 2322.0, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -2322.0}, {"Ingrediente": "Katsuobushi", "Consumo_Teorico_30d": 0.055056179775280906, "Unidade": "Kg", "Estoque_Sistema": -0.02, "Estoque_Projetado": -0.07505617977528091}, {"Ingrediente": "Ketchup", "Consumo_Teorico_30d": 0.1782857142857143, "Unidade": "Kg", "Estoque_Sistema": -0.144, "Estoque_Projetado": -0.3222857142857143}, {"Ingrediente": "Kimuchi", "Consumo_Teorico_30d": 0.24000000000000002, "Unidade": "Kg", "Estoque_Sistema": -0.078, "Estoque_Projetado": -0.318}, {"Ingrediente": "Kombu", "Consumo_Teorico_30d": 0.0036577165112620393, "Unidade": "Kg", "Estoque_Sistema": -0.229, "Estoque_Projetado": -0.23265771651126205}, {"Ingrediente": "Legumes tepan", "Consumo_Teorico_30d": 12.42, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -12.42}, {"Ingrediente": "Limão siciliano", "Consumo_Teorico_30d": 1.4300000000000002, "Unidade": "Kg", "Estoque_Sistema": -0.464, "Estoque_Projetado": -1.8940000000000001}, {"Ingrediente": "Limão taiti", "Consumo_Teorico_30d": 4.8, "Unidade": "Kg", "Estoque_Sistema": -2.16, "Estoque_Projetado": -6.96}, {"Ingrediente": "Lombo suíno", "Consumo_Teorico_30d": 21.805670459162943, "Unidade": "Kg", "Estoque_Sistema": -8.926, "Estoque_Projetado": -30.73167045916294}, {"Ingrediente": "Macarrão frito", "Consumo_Teorico_30d": 5.04, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -5.04}, {"Ingrediente": "Macarrão lamen", "Consumo_Teorico_30d": 7.9, "Unidade": "Kg", "Estoque_Sistema": -2.6, "Estoque_Projetado": -10.5}, {"Ingrediente": "Macarrão udon", "Consumo_Teorico_30d": 1.6, "Unidade": "Kg", "Estoque_Sistema": -0.6, "Estoque_Projetado": -2.2}, {"Ingrediente": "Maionese", "Consumo_Teorico_30d": 0.44999999999999996, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -0.44999999999999996}, {"Ingrediente": "Maionese kewpie", "Consumo_Teorico_30d": 0.14, "Unidade": "Kg", "Estoque_Sistema": -0.05, "Estoque_Projetado": -0.19}, {"Ingrediente": "Maionese tradicional", "Consumo_Teorico_30d": 1.142857142857143, "Unidade": "Kg", "Estoque_Sistema": -0.544, "Estoque_Projetado": -1.686857142857143}, {"Ingrediente": "Manteiga", "Consumo_Teorico_30d": 1.6545454545454545, "Unidade": "Kg", "Estoque_Sistema": -0.675, "Estoque_Projetado": -2.3295454545454546}, {"Ingrediente": "Massa guioza", "Consumo_Teorico_30d": 620.0, "Unidade": "Und", "Estoque_Sistema": -232.0, "Estoque_Projetado": -852.0}, {"Ingrediente": "Massa harumaki", "Consumo_Teorico_30d": 100.0, "Unidade": "Und", "Estoque_Sistema": -53.0, "Estoque_Projetado": -153.0}, {"Ingrediente": "Massa tempurá", "Consumo_Teorico_30d": 18.7, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -18.7}, {"Ingrediente": "Missô", "Consumo_Teorico_30d": 1.2232258064516124, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -1.2232258064516124}, {"Ingrediente": "Molho agridoce", "Consumo_Teorico_30d": 3.0, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -3.0}, {"Ingrediente": "Molho guioza", "Consumo_Teorico_30d": 6.209999999999999, "Unidade": "L", "Estoque_Sistema": 0.0, "Estoque_Projetado": -6.209999999999999}, {"Ingrediente": "Molho tarê", "Consumo_Teorico_30d": 5.015000000000001, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -5.015000000000001}, {"Ingrediente": "Molho tentsuyu", "Consumo_Teorico_30d": 4.760000000000001, "Unidade": "L", "Estoque_Sistema": 0.0, "Estoque_Projetado": -4.760000000000001}, {"Ingrediente": "Molho tonkatsu", "Consumo_Teorico_30d": 0.44999999999999996, "Unidade": "L", "Estoque_Sistema": 0.0, "Estoque_Projetado": -0.44999999999999996}, {"Ingrediente": "Morango", "Consumo_Teorico_30d": 0.72, "Unidade": "Kg", "Estoque_Sistema": -0.7, "Estoque_Projetado": -1.42}, {"Ingrediente": "Mostarda", "Consumo_Teorico_30d": 0.125, "Unidade": "Kg", "Estoque_Sistema": -0.032, "Estoque_Projetado": -0.157}, {"Ingrediente": "Moyashi", "Consumo_Teorico_30d": 2.37, "Unidade": "Kg", "Estoque_Sistema": -0.78, "Estoque_Projetado": -3.1500000000000004}, {"Ingrediente": "Muçarela", "Consumo_Teorico_30d": 1.1400000000000001, "Unidade": "Kg", "Estoque_Sistema": -0.42, "Estoque_Projetado": -1.56}, {"Ingrediente": "Nabo", "Consumo_Teorico_30d": 0.3878571428571429, "Unidade": "Kg", "Estoque_Sistema": -3.592, "Estoque_Projetado": -3.979857142857143}, {"Ingrediente": "Nabo ou pepino", "Consumo_Teorico_30d": 10.605, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -10.605}, {"Ingrediente": "Naruto", "Consumo_Teorico_30d": 1.58, "Unidade": "Kg", "Estoque_Sistema": -0.52, "Estoque_Projetado": -2.1}, {"Ingrediente": "Niguiri salmão und", "Consumo_Teorico_30d": 1518.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -1518.0}, {"Ingrediente": "Nutella", "Consumo_Teorico_30d": 1.2959999999999998, "Unidade": "Kg", "Estoque_Sistema": -0.54, "Estoque_Projetado": -1.8359999999999999}, {"Ingrediente": "Ovo", "Consumo_Teorico_30d": 79.0, "Unidade": "Und", "Estoque_Sistema": -26.0, "Estoque_Projetado": -105.0}, {"Ingrediente": "Peito de frango", "Consumo_Teorico_30d": 10.86, "Unidade": "Kg", "Estoque_Sistema": -4.125, "Estoque_Projetado": -14.985}, {"Ingrediente": "Pele de salmão frita", "Consumo_Teorico_30d": 0.16, "Unidade": "Kg", "Estoque_Sistema": 0.0, "Estoque_Projetado": -0.16}, {"Ingrediente": "Pepino", "Consumo_Teorico_30d": 11.25, "Unidade": "Kg", "Estoque_Sistema": -2.953, "Estoque_Projetado": -14.203}, {"Ingrediente": "Pescoço de galinha", "Consumo_Teorico_30d": 2.421987096774193, "Unidade": "Kg", "Estoque_Sistema": -2.018, "Estoque_Projetado": -4.439987096774193}, {"Ingrediente": "Picles", "Consumo_Teorico_30d": 0.14285714285714288, "Unidade": "Kg", "Estoque_Sistema": -0.04, "Estoque_Projetado": -0.18285714285714288}, {"Ingrediente": "Pimenta Sriracha", "Consumo_Teorico_30d": 0.028, "Unidade": "Kg", "Estoque_Sistema": -0.01, "Estoque_Projetado": -0.038}, {"Ingrediente": "Pimenta dedo de moça", "Consumo_Teorico_30d": 0.08, "Unidade": "Kg", "Estoque_Sistema": -0.038, "Estoque_Projetado": -0.118}, {"Ingrediente": "Pimenta do reino", "Consumo_Teorico_30d": 0.04836984979681278, "Unidade": "Kg", "Estoque_Sistema": -0.114, "Estoque_Projetado": -0.1623698497968128}, {"Ingrediente": "Polvo", "Consumo_Teorico_30d": 0.589655172413793, "Unidade": "Kg", "Estoque_Sistema": -0.3924, "Estoque_Projetado": -0.9820551724137929}, {"Ingrediente": "Raíz de bardana", "Consumo_Teorico_30d": 1.9444444444444446, "Unidade": "Kg", "Estoque_Sistema": -0.553, "Estoque_Projetado": -2.4974444444444446}, {"Ingrediente": "Repolho", "Consumo_Teorico_30d": 13.05858470086099, "Unidade": "Kg", "Estoque_Sistema": -7.4476, "Estoque_Projetado": -20.50618470086099}, {"Ingrediente": "Sake licoroso", "Consumo_Teorico_30d": 0.22022471910112365, "Unidade": "L", "Estoque_Sistema": -0.08, "Estoque_Projetado": -0.30022471910112364}, {"Ingrediente": "Sake seco", "Consumo_Teorico_30d": 0.7942079746311181, "Unidade": "L", "Estoque_Sistema": -0.472, "Estoque_Projetado": -1.2662079746311181}, {"Ingrediente": "Sal", "Consumo_Teorico_30d": 1.5026702429358476, "Unidade": "Kg", "Estoque_Sistema": -0.8426, "Estoque_Projetado": -2.3452702429358476}, {"Ingrediente": "Salmão", "Consumo_Teorico_30d": 21.580000000000002, "Unidade": "Kg", "Estoque_Sistema": -64.751, "Estoque_Projetado": -86.331}, {"Ingrediente": "Salsa frisada", "Consumo_Teorico_30d": 0.117, "Unidade": "Kg", "Estoque_Sistema": -0.042, "Estoque_Projetado": -0.159}, {"Ingrediente": "Salsa trufada", "Consumo_Teorico_30d": 0.865, "Unidade": "Kg", "Estoque_Sistema": -0.128, "Estoque_Projetado": -0.993}, {"Ingrediente": "Salsinha", "Consumo_Teorico_30d": 0.11142857142857143, "Unidade": "Kg", "Estoque_Sistema": -0.034, "Estoque_Projetado": -0.14542857142857143}, {"Ingrediente": "Shimeji", "Consumo_Teorico_30d": 9.995454545454546, "Unidade": "Kg", "Estoque_Sistema": -5.143, "Estoque_Projetado": -15.138454545454547}, {"Ingrediente": "Shisô", "Consumo_Teorico_30d": 364.0, "Unidade": "Und", "Estoque_Sistema": -0.119, "Estoque_Projetado": -364.119}, {"Ingrediente": "Shoyu premium", "Consumo_Teorico_30d": 1.888592100783112, "Unidade": "L", "Estoque_Sistema": -2.153, "Estoque_Projetado": -4.041592100783112}, {"Ingrediente": "Shoyu tradicional", "Consumo_Teorico_30d": 1.9121979345607865, "Unidade": "L", "Estoque_Sistema": -2.3048, "Estoque_Projetado": -4.216997934560787}, {"Ingrediente": "Sorvete", "Consumo_Teorico_30d": 3.3000000000000003, "Unidade": "L", "Estoque_Sistema": -0.9, "Estoque_Projetado": -4.2}, {"Ingrediente": "Suco de laranja", "Consumo_Teorico_30d": 0.550561797752809, "Unidade": "L", "Estoque_Sistema": -0.2, "Estoque_Projetado": -0.750561797752809}, {"Ingrediente": "Suco de limão", "Consumo_Teorico_30d": 0.2752808988764045, "Unidade": "L", "Estoque_Sistema": -0.4822, "Estoque_Projetado": -0.7574808988764046}, {"Ingrediente": "Suco de limão siciliano", "Consumo_Teorico_30d": 0.2752808988764045, "Unidade": "L", "Estoque_Sistema": -0.1, "Estoque_Projetado": -0.3752808988764045}, {"Ingrediente": "Sucrilhos", "Consumo_Teorico_30d": 1.38, "Unidade": "Kg", "Estoque_Sistema": -0.48, "Estoque_Projetado": -1.8599999999999999}, {"Ingrediente": "Tempero para sushi", "Consumo_Teorico_30d": 3.657716511262039, "Unidade": "L", "Estoque_Sistema": -0.535, "Estoque_Projetado": -4.192716511262039}, {"Ingrediente": "Tobiko", "Consumo_Teorico_30d": 0.14, "Unidade": "Kg", "Estoque_Sistema": -0.05, "Estoque_Projetado": -0.19}, {"Ingrediente": "Tofu", "Consumo_Teorico_30d": 5.869999999999999, "Unidade": "Kg", "Estoque_Sistema": -1.59, "Estoque_Projetado": -7.459999999999999}, {"Ingrediente": "Togarashi", "Consumo_Teorico_30d": 0.013000000000000001, "Unidade": "Kg", "Estoque_Sistema": -0.001, "Estoque_Projetado": -0.014000000000000002}, {"Ingrediente": "Tomate cereja", "Consumo_Teorico_30d": 1.9500000000000002, "Unidade": "Kg", "Estoque_Sistema": -0.7, "Estoque_Projetado": -2.6500000000000004}, {"Ingrediente": "Uramaki salmão especial und", "Consumo_Teorico_30d": 528.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -528.0}, {"Ingrediente": "Uramaki salmão und", "Consumo_Teorico_30d": 1472.0, "Unidade": "Und", "Estoque_Sistema": 0.0, "Estoque_Projetado": -1472.0}, {"Ingrediente": "Wasabi", "Consumo_Teorico_30d": 5.345000000000001, "Unidade": "Kg", "Estoque_Sistema": -1.887, "Estoque_Projetado": -7.232000000000001}, {"Ingrediente": "Água", "Consumo_Teorico_30d": 61.37582185724316, "Unidade": "L", "Estoque_Sistema": -52.0496, "Estoque_Projetado": -113.42542185724315}, {"Ingrediente": "Óleo de gergelim", "Consumo_Teorico_30d": 0.2818002184915833, "Unidade": "L", "Estoque_Sistema": -0.204, "Estoque_Projetado": -0.4858002184915833}, {"Ingrediente": "Óleo de soja", "Consumo_Teorico_30d": 4.421983173877459, "Unidade": "L", "Estoque_Sistema": -2.148, "Estoque_Projetado": -6.569983173877459}];
+
+// ═══════════════ TABS ═══════════════
+function showTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ═══════════════ ESTOQUE ═══════════════
+let estoqueFilter = 'Todos', estoqueSearch = '';
+function filterEstoque(f) {
+  estoqueFilter = f;
+  document.querySelectorAll('#tab-estoque .local-pill').forEach(p =>
+    p.classList.toggle('active', p.textContent.includes(f) || (f==='Todos' && p.textContent==='Todos')));
+  renderEstoque();
+}
+function searchEstoque(v) { estoqueSearch = v.toLowerCase(); renderEstoque(); }
+
+function renderEstoque() {
+  const tbody = document.getElementById('estoqueTableBody');
+  let rows = DATA_ESTOQUE.filter(r => {
+    if (estoqueFilter !== 'Todos' && r.Status !== estoqueFilter) return false;
+    if (estoqueSearch && !r.Insumo.toLowerCase().includes(estoqueSearch)) return false;
+    return true;
+  });
+  tbody.innerHTML = '';
+  rows.forEach(r => {
+    const pct = r.Estoque_Minimo > 0 ? Math.min((r.Estoque_Sistema / r.Estoque_Minimo) * 100, 100) : 100;
+    const barColor = r.Status === 'OK' ? '#10B981' : r.Status === 'Ruptura' ? '#F43F5E' : '#F59E0B';
+    const badgeCls = r.Status === 'OK' ? 'badge-ok' : r.Status === 'Ruptura' ? 'badge-ruptura' : 'badge-baixo';
+    const cob = r.Cobertura_Dias > 0 ? r.Cobertura_Dias.toFixed(0) + 'd' : '—';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><b style="color:var(--text2)">${r.Insumo}</b></td>
+      <td class="td-mono" style="color:var(--muted)">${r.Unidade}</td>
+      <td class="td-mono">${r.Estoque_Sistema.toFixed(2)}
+        <div class="stock-bar-wrap"><div class="stock-bar" style="width:${Math.max(pct,0)}%;background:${barColor}"></div></div>
+      </td>
+      <td class="td-mono" style="color:var(--muted)">${r.Estoque_Minimo}</td>
+      <td class="td-mono td-teal">${r.Consumo_Teorico_30d.toFixed(2)}</td>
+      <td class="td-mono ${r.Estoque_Projetado < 0 ? 'td-rose' : 'td-green'}">${r.Estoque_Projetado.toFixed(2)}</td>
+      <td class="td-mono" style="color:var(--muted)">${cob}</td>
+      <td class="td-mono td-amber">${r.Compra_Sugerida > 0 ? r.Compra_Sugerida.toFixed(2) : '—'}</td>
+      <td><span class="badge ${badgeCls}">${r.Status}</span></td>`;
+    tbody.appendChild(tr);
+  });
+  // Stats
+  const total = DATA_ESTOQUE;
+  document.getElementById('estRuptura').textContent = total.filter(r => r.Status === 'Ruptura').length;
+  document.getElementById('estBaixo').textContent   = total.filter(r => r.Status === 'Abaixo do mínimo').length;
+  document.getElementById('estOk').textContent      = total.filter(r => r.Status === 'OK').length;
+}
+
+// ═══════════════ CMV ═══════════════
+let cmvFilter = 'Todos', cmvSearch = '';
+function filterCmv(f) {
+  cmvFilter = f;
+  document.querySelectorAll('#tab-cmv .local-pill').forEach(p =>
+    p.classList.toggle('active', p.textContent.includes(f==='OK'?'Com base':f==='Sem custo base'?'Sem base':'Todos')));
+  renderCmv();
+}
+function searchCmv(v) { cmvSearch = v.toLowerCase(); renderCmv(); }
+
+function renderCmv() {
+  const tbody = document.getElementById('cmvTableBody');
+  let rows = DATA_CMV.filter(r => {
+    if (cmvFilter !== 'Todos' && r.Status !== cmvFilter) return false;
+    if (cmvSearch && !r.Produto_Venda.toLowerCase().includes(cmvSearch)) return false;
+    return true;
+  }).sort((a,b) => b.Receita_Total - a.Receita_Total);
+  tbody.innerHTML = '';
+  rows.forEach((r, i) => {
+    const cmvPct = r.CMV_Teorico > 0 ? (r.CMV_Teorico * 100).toFixed(1) + '%' : '—';
+    const cmvColor = r.CMV_Teorico > 0.35 ? 'td-rose' : r.CMV_Teorico > 0.25 ? 'td-amber' : 'td-green';
+    const badgeCls = r.Status === 'OK' ? 'badge-ok' : 'badge-sem';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="color:var(--muted)">${i+1}</td>
+      <td style="font-weight:500;max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${r.Produto_Venda}">${r.Produto_Venda}</td>
+      <td class="td-mono" style="color:var(--muted)">${r.Qtd_Vendida}</td>
+      <td class="td-mono td-teal">R$ ${r.Receita_Total.toLocaleString('pt-BR',{maximumFractionDigits:0})}</td>
+      <td class="td-mono" style="color:var(--muted)">R$ ${r.Custo_Unit_Base.toFixed(2)}</td>
+      <td class="td-mono td-rose">R$ ${r.Custo_Teorico_Total.toFixed(2)}</td>
+      <td class="td-mono ${cmvColor}">${cmvPct}</td>
+      <td class="td-mono" style="color:var(--muted)">R$ ${r.Preço_Aplicado.toFixed(2)}</td>
+      <td><span class="badge ${badgeCls}">${r.Status}</span></td>`;
+    tbody.appendChild(tr);
+  });
+  // Stats
+  const comBase = DATA_CMV.filter(r => r.Status === 'OK');
+  const semBase = DATA_CMV.filter(r => r.Status !== 'OK');
+  const cmvMedio = comBase.length > 0 ? comBase.reduce((a,r) => a + r.CMV_Teorico, 0) / comBase.length : 0;
+  const custoTotal = DATA_CMV.reduce((a,r) => a + r.Custo_Teorico_Total, 0);
+  document.getElementById('cmvMedio').textContent    = (cmvMedio*100).toFixed(1) + '%';
+  document.getElementById('cmvCustoTotal').textContent = 'R$ ' + custoTotal.toLocaleString('pt-BR',{maximumFractionDigits:0});
+  document.getElementById('cmvComBase').textContent  = comBase.length;
+  document.getElementById('cmvSemBase').textContent  = semBase.length;
+}
+
+// ═══════════════ CONSUMO ═══════════════
+let consumoSearch = '';
+function searchConsumo(v) { consumoSearch = v.toLowerCase(); renderConsumo(); }
+
+function renderConsumo() {
+  const tbody = document.getElementById('consumoTableBody');
+  let rows = DATA_CONSUMO.filter(r =>
+    !consumoSearch || r.Ingrediente.toLowerCase().includes(consumoSearch)
+  ).sort((a,b) => b.Consumo_Teorico_30d - a.Consumo_Teorico_30d);
+  tbody.innerHTML = '';
+  rows.forEach((r, i) => {
+    const projetado = r.Estoque_Projetado;
+    const projCls = projetado < 0 ? 'td-rose' : 'td-green';
+    const sit = projetado < 0 ? '<span class="badge badge-ruptura">Déficit</span>'
+              : projetado < r.Consumo_Teorico_30d * 0.3 ? '<span class="badge badge-baixo">Baixo</span>'
+              : '<span class="badge badge-ok">OK</span>';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="color:var(--muted)">${i+1}</td>
+      <td style="font-weight:500">${r.Ingrediente}</td>
+      <td class="td-mono" style="color:var(--muted)">${r.Unidade}</td>
+      <td class="td-mono td-teal">${r.Consumo_Teorico_30d.toFixed(3)}</td>
+      <td class="td-mono" style="color:var(--muted)">${r.Estoque_Sistema.toFixed(3)}</td>
+      <td class="td-mono ${projCls}">${projetado.toFixed(3)}</td>
+      <td>${sit}</td>`;
+    tbody.appendChild(tr);
+  });
+  // Stats
+  const top = [...DATA_CONSUMO].sort((a,b) => b.Consumo_Teorico_30d - a.Consumo_Teorico_30d)[0];
+  const negCount = DATA_CONSUMO.filter(r => r.Estoque_Projetado < 0).length;
+  document.getElementById('consTop').textContent     = top ? top.Consumo_Teorico_30d.toFixed(1) : '—';
+  document.getElementById('consTopNome').textContent = top ? top.Ingrediente : '—';
+  document.getElementById('consProjNeg').textContent = negCount;
+  document.getElementById('consCobert').textContent  = '—';
+}
+
+// ═══════════════ DADOS DE VENDAS + LÓGICA ═══════════════
 const DEFAULT_VENDAS = [
   {produto:'Setto Kayo',categoria:'Setto',local:'Salão',valorTotal:16650,qtd:74},
   {produto:'Setto Kayo',categoria:'Setto',local:'Delivery',valorTotal:225,qtd:1},
@@ -816,6 +1065,7 @@ function refreshAll() {
 // INIT
 renderAlertas();
 refreshAll();
+
 </script>
 </body>
 </html>
